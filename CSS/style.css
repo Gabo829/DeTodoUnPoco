@@ -12,6 +12,30 @@ header {
   padding: 20px;
 }
 
+/* Título principal con fondo verde degradado */
+.titulo-principal {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white; /* texto blanco para contraste */
+  background: linear-gradient(90deg, #28a745, #218838);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: fit-content; /* se ajusta al tamaño del texto */
+}
+
+/* Subtítulo con fondo azul degradado */
+.subtitulo {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px auto 30px auto;
+  width: fit-content;
+}
+
 .catalogo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
