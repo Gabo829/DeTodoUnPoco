@@ -60,8 +60,8 @@ header {
 }
 
 .producto img {
-    width: 200px; /* ancho fijo */
-    height: 200px; /* alto fijo */
+    width: 250px; /* ancho fijo */
+    height: 250px; /* alto fijo */
     object-fit: cover; /* mantiene la proporción y recorta si es necesario */
 }
 
