@@ -25,11 +25,44 @@ header {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   padding: 15px;
   text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.producto:hover {
+  transform: scale(1.03);
 }
 
 .producto img {
-  max-width: 100%;   /* nunca será más grande que su contenedor */
+  max-width: 100%;
   height: auto;
+  border-radius: 10px;
+}
+
+/* 📱 Móviles */
+@media (max-width: 767px) {
+  .producto img {
+    width: 120px;   /* más chicas en cel */
+  }
+}
+
+/* 💻 Pantallas medianas (tablets o laptops) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .producto img {
+    width: 160px;
+  }
+}
+
+/* 🖥️ Pantallas grandes (PC de escritorio) */
+@media (min-width: 1200px) {
+  .producto img {
+    width: 200px;
+  }
+}
+
+.producto img {
+    width: 200px; /* ancho fijo */
+    height: 200px; /* alto fijo */
+    object-fit: cover; /* mantiene la proporción y recorta si es necesario */
 }
 
 .btn-wsp {
@@ -41,6 +74,7 @@ header {
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  transition: background 0.2s ease;
 }
 
 .btn-wsp:hover {
