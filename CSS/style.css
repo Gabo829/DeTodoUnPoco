@@ -6,8 +6,8 @@ body {
 }
 
 header {
-  background: #25d366;
-  color: white;
+  background: #05d150;
+  color: #ffffff;
   text-align: center;
   padding: 20px;
 }
@@ -15,7 +15,7 @@ header {
 /* Título principal con fondo verde degradado */
 .titulo-principal {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: white; /* texto blanco para contraste */
   background: linear-gradient(90deg, #28a745, #218838);
   padding: 15px;
@@ -27,7 +27,7 @@ header {
 /* Subtítulo con fondo azul degradado */
 .subtitulo {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: white;
   background: linear-gradient(90deg, #007bff, #0056b3);
   padding: 10px;
