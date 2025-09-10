@@ -7,33 +7,26 @@
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+  <nav class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="favoritos.html">Favoritos</a>
+    <a href="perfumes.html">Perfumes</a>
+    <a href="relojes.html">Relojes</a>
+    <a href="carteras.html">Carteras</a>
+  </nav>
+
   <header>
     <h1 class="titulo-principal">Catálogo de Relojes</h1>
-    <a href="index.html">⬅ Volver a la tienda</a>
   </header>
 
-  <section class="catalogo">
-    <div class="producto">
-      <img src="img/Relojes 1.1/Reloj D.jpeg" alt="Rolex 1.1 Dorado">
-      <h2>Rolex Dorado</h2>
-      <p>$30.00</p>
-      <a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el Rolex Dorado" target="_blank">Comprar por WhatsApp</a>
-    </div>
+  <!-- Buscador -->
+  <input type="text" id="buscador" placeholder="Buscar" style="margin:20px auto; display:block; padding:10px; width:80%; max-width:400px; border-radius:8px; border:1px solid #ccc;">
 
-    <div class="producto">
-      <img src="img/Relojes 1.1/Reloj P con D.jpeg" alt="Rolex 1.1 Plateado con Dorado">
-      <h2>Rolex Plateado con Dorado</h2>
-      <p>$30.00</p>
-      <a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el Rolex Plateado con Dorado" target="_blank">Comprar por WhatsApp</a>
-    </div>
-
-    <div class="producto">
-      <img src="img/Relojes 1.1/Reloj P.jpeg" alt="Rolex 1.1 Plateado">
-      <h2>Rolex Plateado</h2>
-      <p>$30.00</p>
-      <a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el Rolex Plateado" target="_blank">Comprar por WhatsApp</a>
-    </div>
-
+  <!-- Contenedor de productos -->
+  <section id="catalogo" class="catalogo">
+    <!-- Aquí se generarán los productos automáticamente -->
   </section>
+
+  <script src="JS/productos.js"></script>
 </body>
 </html>
