@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis Favoritos</title>
-  <link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/style.css">
+<script src="JS/productos.js" defer></script>
+<script src="JS/favoritos.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -25,7 +27,6 @@
 
   <p id="vacio">Aún no tienes productos en favoritos.</p>
 
-  <script src="JS/productos.js"></script>
   <script>
     function cargarFavoritos() {
       const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
