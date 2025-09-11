@@ -63,13 +63,19 @@ function asignarEventosFavoritos() {
       const nombre = btn.getAttribute("data-nombre");
       let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
-      if (favoritos.includes(nombre)) {
+      // Buscar el producto por su nombre
+      const producto = Object.values(productos).flat().find(p => p.nombre === nombre);
+
+      // Revisar si ya existe en favoritos
+      const index = favoritos.findIndex(fav => fav.nombre === nombre);
+
+      if (index !== -1) {
         // Quitar de favoritos
-        favoritos = favoritos.filter(item => item !== nombre);
+        favoritos.splice(index, 1);
         btn.textContent = "🤍";
       } else {
-        // Agregar a favoritos
-        favoritos.push(nombre);
+        // Agregar objeto completo
+        favoritos.push(producto);
         btn.textContent = "❤️";
       }
 
