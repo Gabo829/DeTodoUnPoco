@@ -46,7 +46,7 @@ function generarProductos(categoria) {
       <img src="${p.img}" alt="${p.nombre}">
       <h2>${p.nombre}</h2>
       ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
-      ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}
+      ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}
       <button class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
     `;
 
