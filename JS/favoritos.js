@@ -17,6 +17,17 @@ function cargarFavoritos() {
       <img src="${producto.img}" alt="${producto.nombre}">
       <h2>${producto.nombre}</h2>
       <p>$${producto.precio}.00</p>
+      
+      <!-- Botón comprar directo por WhatsApp -->
+      ${producto.precio > 0 ? `
+        <a class="btn-wsp" 
+           href="https://wa.me/593963210127?text=Hola! Quiero comprar ${encodeURIComponent(producto.nombre)}" 
+           target="_blank">
+           Comprar
+        </a>
+      ` : ""}
+      
+      <!-- Botón eliminar -->
       <div class="btn-eliminar" onclick="eliminarFavorito(${index})">🗑 Eliminar</div>
     `;
     contenedor.appendChild(div);
