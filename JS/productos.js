@@ -43,19 +43,13 @@ function generarProductos(categoria) {
     const div = document.createElement("div");
     div.classList.add("producto");
 
-    const esFavorito = favoritos.includes(p.nombre) ? "❤️" : "🤍";
+    const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
 
     div.innerHTML = `
       <img src="${p.img}" alt="${p.nombre}">
       <h2>${p.nombre}</h2>
       ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
-${p.precio > 0 ? (() => {
-  const urlImagen = window.location.origin + "/" + p.img;
-  const mensaje = `Hola! Quiero comprar ${p.nombre}\n${urlImagen}`;
-  const enlaceWsp = `https://wa.me/593963210127?text=${encodeURIComponent(mensaje)}`;
-  return `<a class="btn-wsp" href="${enlaceWsp}" target="_blank">Comprar</a>`;
-})() : ""}
-
+      ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}
       <button class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
     `;
 
@@ -72,7 +66,7 @@ function asignarEventosFavoritos() {
       const nombre = btn.getAttribute("data-nombre");
       let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
-      // Buscar el producto por su nombre
+      // Buscar el producto
       const producto = Object.values(productos).flat().find(p => p.nombre === nombre);
 
       // Revisar si ya existe en favoritos
@@ -111,7 +105,7 @@ function buscarProductos(categoria) {
         const div = document.createElement("div");
         div.classList.add("producto");
 
-        const esFavorito = favoritos.includes(p.nombre) ? "❤️" : "🤍";
+        const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
 
         div.innerHTML = `
           <img src="${p.img}" alt="${p.nombre}">
