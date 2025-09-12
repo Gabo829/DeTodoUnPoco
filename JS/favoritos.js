@@ -21,9 +21,8 @@ function cargarFavoritos() {
       <!-- Botón comprar directo por WhatsApp -->
       ${producto.precio > 0 ? `
         <a class="btn-wsp" 
-           href="https://wa.me/593963210127?text=Hola! Quiero comprar ${encodeURIComponent(producto.nombre)}" 
-           target="_blank">
-           Comprar
+           <a class="btn-wsp" href="https://wa.me/593963210127?text=${encodeURIComponent(`Hola! Quiero comprar ${producto.nombre}\n${window.location.origin}/${producto.img}`)}" target="_blank">Comprar</a>
+
         </a>
       ` : ""}
       

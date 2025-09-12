@@ -25,7 +25,10 @@ const productos = {
     {nombre: "Rolex Plateado", precio: 30, img: "img/Relojes 1.1/Reloj_P.jpeg"}
   ],
   carteras: [
-    {nombre: "En Proceso...", precio: 0, img: "img/Carteras/cartera_placeholder.jpg"}
+    {nombre: "Coach con Diseño de Cerezas", precio: 35, img: "img/Carteras 1.1/Coach_con_Diseño_de_Cerezas.jpeg"},
+    {nombre: "Coach Blanco", precio: 35, img: "img/Carteras 1.1/Coach_Blanco.jpeg"},
+    {nombre: "Coach Negro", precio: 35, img: "img/Carteras 1.1/Coach_Negro.jpeg"},
+    {nombre: "The Tote Bag", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag.jpeg"}
   ]
 };
 
@@ -46,7 +49,13 @@ function generarProductos(categoria) {
       <img src="${p.img}" alt="${p.nombre}">
       <h2>${p.nombre}</h2>
       ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
-      ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}
+${p.precio > 0 ? (() => {
+  const urlImagen = window.location.origin + "/" + p.img;
+  const mensaje = `Hola! Quiero comprar ${p.nombre}\n${urlImagen}`;
+  const enlaceWsp = `https://wa.me/593963210127?text=${encodeURIComponent(mensaje)}`;
+  return `<a class="btn-wsp" href="${enlaceWsp}" target="_blank">Comprar</a>`;
+})() : ""}
+
       <button class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
     `;
 
@@ -108,7 +117,7 @@ function buscarProductos(categoria) {
           <img src="${p.img}" alt="${p.nombre}">
           <h2>${p.nombre}</h2>
           ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
-          ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar ${encodeURIComponent(p.nombre)}" target="_blank">Comprar por WhatsApp</a>` : ""}
+          ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}
           <button class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
         `;
 
