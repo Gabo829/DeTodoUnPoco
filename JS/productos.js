@@ -29,7 +29,23 @@ const productos = {
     {nombre: "Coach Blanco", precio: 35, img: "img/Carteras 1.1/Coach_Blanco.jpeg"},
     {nombre: "Coach Negro", precio: 35, img: "img/Carteras 1.1/Coach_Negro.jpeg"},
     {nombre: "The Tote Bag", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag.jpeg"}
-  ]
+  ],
+  edredones: [
+    {nombre: "Edredon de 2 Plazas Tropical 1", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical1.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 2", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical2.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 3", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical3.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 4", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical4.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 5", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical5.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 6", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical6.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 7", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical7.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 8", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical8.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 9", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical9.jpeg"},
+    {nombre: "Edredon de 2 Plazas Tropical 10", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical10.jpeg"},
+
+    {nombre: "Edredon llano Negro", precio: 20, img: "img/Edredones/Edredon_LLano_Negro.jpeg"},
+    {nombre: "Edredon llano Negro", precio: 20, img: "img/Edredones/Edredon_LLano_Beige.jpeg"},
+    {nombre: "Edredon llano Negro", precio: 20, img: "img/Edredones/Edredon_LLano_Cyan.jpeg"},
+  ],
 };
 
 // Función para generar productos
@@ -129,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (pagina.includes("perfumes")) categoria = "perfumes";
   else if (pagina.includes("relojes")) categoria = "relojes";
+  else if (pagina.includes("edredones")) categoria = "edredones";
   else if (pagina.includes("carteras")) categoria = "carteras";
 
   if (categoria) {
