@@ -24,12 +24,6 @@ const productos = {
     {nombre: "Rolex Plateado con Dorado", precio: 30, img: "img/Relojes 1.1/Reloj_P_con_D.jpeg"},
     {nombre: "Rolex Plateado", precio: 30, img: "img/Relojes 1.1/Reloj_P.jpeg"}
   ],
-  carteras: [
-    {nombre: "Coach con Diseño de Cerezas", precio: 35, img: "img/Carteras 1.1/Coach_con_Diseño_de_Cerezas.jpeg"},
-    {nombre: "Coach Blanco", precio: 35, img: "img/Carteras 1.1/Coach_Blanco.jpeg"},
-    {nombre: "Coach Negro", precio: 35, img: "img/Carteras 1.1/Coach_Negro.jpeg"},
-    {nombre: "The Tote Bag", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag.jpeg"}
-  ],
   edredones: [
     {nombre: "Edredon de 2 Plazas Tropical 1", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical1.jpeg"},
     {nombre: "Edredon de 2 Plazas Tropical 2", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical2.jpeg"},
@@ -42,9 +36,43 @@ const productos = {
     {nombre: "Edredon de 2 Plazas Tropical 9", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical9.jpeg"},
     {nombre: "Edredon de 2 Plazas Tropical 10", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical10.jpeg"},
 
-    {nombre: "Edredon llano Negro", precio: 20, img: "img/Edredones/Edredon_LLano_Negro.jpeg"},
-    {nombre: "Edredon llano Negro", precio: 20, img: "img/Edredones/Edredon_LLano_Beige.jpeg"},
-    {nombre: "Edredon llano Negro", precio: 20, img: "img/Edredones/Edredon_LLano_Cyan.jpeg"},
+    {nombre: "Edredon llano Negro", precio: 30, img: "img/Edredones/Edredon_LLano_Negro.jpeg"},
+    {nombre: "Edredon llano Beige", precio: 30, img: "img/Edredones/Edredon_LLano_Beige.jpeg"},
+    {nombre: "Edredon llano Cyan", precio: 30, img: "img/Edredones/Edredon_LLano_Cyan.jpeg"},
+    {nombre: "Edredon llano Azul", precio: 30, img: "img/Edredones/Edredon_LLano_Azul.jpeg"},
+    {nombre: "Edredon llano Blanco", precio: 30, img: "img/Edredones/Edredon_LLano_Blanco.jpeg"},
+    {nombre: "Edredon llano Blanco Hueso", precio: 30, img: "img/Edredones/Edredon_LLano_Blanco_Hueso.jpeg"},
+    {nombre: "Edredon llano Celeste Claro", precio: 30, img: "img/Edredones/Edredon_LLano_Celeste_Claro.jpeg"},
+    {nombre: "Edredon llano Gris", precio: 30, img: "img/Edredones/Edredon_LLano_Gris.jpeg"},
+    {nombre: "Edredon llano Morado", precio: 30, img: "img/Edredones/Edredon_LLano_Morado.jpeg"},
+    {nombre: "Edredon llano Morado Claro", precio: 30, img: "img/Edredones/Edredon_LLano_Morado_Claro.jpeg"},
+    {nombre: "Edredon llano Rojo", precio: 30, img: "img/Edredones/Edredon_LLano_Rojo.jpeg"},
+    {nombre: "Edredon llano Verde Claro", precio: 30, img: "img/Edredones/Edredon_LLano_Verde_Claro.jpeg"},
+
+    {nombre: "Edredon Tropical 1", precio: 39, img: "img/Edredones/Edredon_Tropical1.jpeg"},
+    {nombre: "Edredon Tropical 2", precio: 39, img: "img/Edredones/Edredon_Tropical2.jpeg"},
+    {nombre: "Edredon Tropical 3", precio: 39, img: "img/Edredones/Edredon_Tropical3.jpeg"},
+    {nombre: "Edredon Tropical 4", precio: 39, img: "img/Edredones/Edredon_Tropical4.jpeg"},
+    {nombre: "Edredon Tropical 5", precio: 39, img: "img/Edredones/Edredon_Tropical5.jpeg"},
+    {nombre: "Edredon Tropical 6", precio: 39, img: "img/Edredones/Edredon_Tropical6.jpeg"},
+    {nombre: "Edredon Tropical 7", precio: 39, img: "img/Edredones/Edredon_Tropical7.jpeg"},
+  ],
+    carteras: [
+    {nombre: "Coach Blanco", precio: 35, img: "img/Carteras 1.1/Coach_Blanco.jpeg"},
+    {nombre: "Coach Negro", precio: 35, img: "img/Carteras 1.1/Coach_Negro.jpeg"},
+    {nombre: "Coach de Cerezas", precio: 35, img: "img/Carteras 1.1/Coach_con_Diseño_de_Cerezas.jpeg"},
+    {nombre: "Coach Nolita 1", precio: 35, img: "img/Carteras 1.1/Coach_Nolita_Blanco.jpeg"},
+    {nombre: "Coach Nolita 2", precio: 35, img: "img/Carteras 1.1/Coach_Nolita_Cafe.jpeg"},
+    {nombre: "Coach Nolita 3", precio: 35, img: "img/Carteras 1.1/Coach_Nolita_Gris.jpeg"},
+    {nombre: "Coach Nolita 4", precio: 35, img: "img/Carteras 1.1/Coach_Nolita_Marron.jpeg"},
+    {nombre: "Coach Nolita 5", precio: 35, img: "img/Carteras 1.1/Coach_Nolita_Negro.jpeg"},
+
+    {nombre: "The Tote Bag", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag.jpeg"},
+    {nombre: "The Tote Bag Snoopy 1", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Blanco1.jpeg"},
+    {nombre: "The Tote Bag Snoopy 2", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Blanco2.jpeg"},
+    {nombre: "The Tote Bag Snoopy 3", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Negro1.jpeg"},
+    {nombre: "The Tote Bag Snoopy 4", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Negro2.jpeg"},
+    {nombre: "The Tote Bag Snoopy 5", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Verde.jpeg"},
   ],
 };
 
