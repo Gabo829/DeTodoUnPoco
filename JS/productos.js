@@ -49,15 +49,15 @@ const productos = {
     {nombre: "Edredon llano Rojo", precio: 30, img: "img/Edredones/Edredon_LLano_Rojo.jpeg"},
     {nombre: "Edredon llano Verde Claro", precio: 30, img: "img/Edredones/Edredon_LLano_Verde_Claro.jpeg"},
 
-    {nombre: "Edredon Tropical 1", precio: 39, img: "img/Edredones/Edredon_Tropical1.jpeg"},
-    {nombre: "Edredon Tropical 2", precio: 39, img: "img/Edredones/Edredon_Tropical2.jpeg"},
-    {nombre: "Edredon Tropical 3", precio: 39, img: "img/Edredones/Edredon_Tropical3.jpeg"},
-    {nombre: "Edredon Tropical 4", precio: 39, img: "img/Edredones/Edredon_Tropical4.jpeg"},
-    {nombre: "Edredon Tropical 5", precio: 39, img: "img/Edredones/Edredon_Tropical5.jpeg"},
-    {nombre: "Edredon Tropical 6", precio: 39, img: "img/Edredones/Edredon_Tropical6.jpeg"},
-    {nombre: "Edredon Tropical 7", precio: 39, img: "img/Edredones/Edredon_Tropical7.jpeg"},
+    {nombre: "Edredon Estampado 1", precio: 39, img: "img/Edredones/Edredon_Estampado1.jpeg"},
+    {nombre: "Edredon Estampado 2", precio: 39, img: "img/Edredones/Edredon_Estampado2.jpeg"},
+    {nombre: "Edredon Estampado 3", precio: 39, img: "img/Edredones/Edredon_Estampado3.jpeg"},
+    {nombre: "Edredon Estampado 4", precio: 39, img: "img/Edredones/Edredon_Estampado4.jpeg"},
+    {nombre: "Edredon Estampado 5", precio: 39, img: "img/Edredones/Edredon_Estampado5.jpeg"},
+    {nombre: "Edredon Estampado 6", precio: 39, img: "img/Edredones/Edredon_Estampado6.jpeg"},
+    {nombre: "Edredon Estampado 7", precio: 39, img: "img/Edredones/Edredon_Estampado7.jpeg"},
   ],
-    carteras: [
+  carteras: [
     {nombre: "Coach Blanco", precio: 35, img: "img/Carteras 1.1/Coach_Blanco.jpeg"},
     {nombre: "Coach Negro", precio: 35, img: "img/Carteras 1.1/Coach_Negro.jpeg"},
     {nombre: "Coach de Cerezas", precio: 35, img: "img/Carteras 1.1/Coach_con_Diseño_de_Cerezas.jpeg"},
@@ -74,6 +74,12 @@ const productos = {
     {nombre: "The Tote Bag Snoopy 4", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Negro2.jpeg"},
     {nombre: "The Tote Bag Snoopy 5", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Verde.jpeg"},
   ],
+  sabanas: [
+    {nombre: "Sabana con Estampado 1", precio: 35, img: "img/Sabanas/Sabana_Estampado1.jpeg"},
+    {nombre: "Sabana con Estampado 2", precio: 35, img: "img/Sabanas/Sabana_Estampado2.jpeg"},
+    {nombre: "Sabana con Estampado 3", precio: 35, img: "img/Sabanas/Sabana_Estampado3.jpeg"},
+    {nombre: "Sabana con Estampado 4", precio: 35, img: "img/Sabanas/Sabana_Estampado4.jpeg"}
+  ]
 };
 
 // Función para generar productos
@@ -174,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (pagina.includes("perfumes")) categoria = "perfumes";
   else if (pagina.includes("relojes")) categoria = "relojes";
   else if (pagina.includes("edredones")) categoria = "edredones";
+  else if (pagina.includes("sabanas")) categoria = "sabanas";
   else if (pagina.includes("carteras")) categoria = "carteras";
 
   if (categoria) {
