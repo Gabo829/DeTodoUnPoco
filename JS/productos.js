@@ -96,7 +96,7 @@ function generarProductos(categoria) {
     const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
 
     div.innerHTML = `
-      <img src="${p.img}" alt="${p.nombre}">
+      <img src="${p.img}" alt="${p.nombre}" loading="lazy">
       <h2>${p.nombre}</h2>
       ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
       ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}
@@ -158,7 +158,7 @@ function buscarProductos(categoria) {
         const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
 
         div.innerHTML = `
-          <img src="${p.img}" alt="${p.nombre}">
+          <img src="${p.img}" alt="${p.nombre}" loading="lazy">
           <h2>${p.nombre}</h2>
           ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
           ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}

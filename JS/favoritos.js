@@ -14,7 +14,7 @@ function cargarFavoritos() {
     let div = document.createElement('div');
     div.classList.add('producto');
     div.innerHTML = `
-      <img src="${producto.img}" alt="${producto.nombre}">
+      <img src="${producto.img}" alt="${producto.nombre}" loading="lazy">
       <h2>${producto.nombre}</h2>
       <p>$${producto.precio}.00</p>
       
