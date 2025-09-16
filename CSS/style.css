@@ -156,6 +156,7 @@ header {
   padding: clamp(6px, 1.2vw, 6px) clamp(8px, 2vw, 7px);
   background: #ffc107;
   color: white;
+  border: 2px solid #111111;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -178,13 +179,88 @@ header {
   color: white;
   border-radius: 6px;
   cursor: pointer;
-  font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+  font-size: clamp(0.75rem, 1.8vw, 0.8rem);
   font-weight: bold;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn-eliminar:hover {
   background: #e60000;
+  transform: scale(1.05);
+}
+
+/* Botón de carrito */
+.btn-carrito {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: clamp(6px, 1.2vw, 6px) clamp(8px, 2vw, 7px);
+  background: #ffffff;        /* Fondo blanco */
+  color: #333;                /* Texto oscuro */
+  border: 2px solid #111111;  /* Borde verde estilo WhatsApp */
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-carrito:hover {
+  background: #25d366; /* Verde al pasar el mouse */
+  color: #fff;         /* Texto blanco */
+  transform: scale(1.05);
+}
+
+/* Contenedor de productos del carrito */
+#lista-carrito {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Igual que catálogo */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Cada producto en el carrito */
+.carrito-producto {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrito-producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Total y botón de comprar arriba */
+.carrito-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* separación entre total y botón */
+  margin: 20px 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.carrito-header button {
+  padding: 8px 16px;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.carrito-header button:hover {
+  background: #1ebe5d;
   transform: scale(1.05);
 }
 

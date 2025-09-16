@@ -25,17 +25,17 @@ const productos = {
     {nombre: "Rolex Plateado", precio: 30, img: "img/Relojes 1.1/Reloj_P.jpeg"}
   ],
   edredones: [
-    {nombre: "Edredon de 2 Plazas Tropical 1", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical1.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 2", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical2.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 3", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical3.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 4", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical4.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 5", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical5.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 6", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical6.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 7", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical7.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 8", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical8.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 9", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical9.jpeg"},
-    {nombre: "Edredon de 2 Plazas Tropical 10", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical10.jpeg"},
-
+    {nombre: "Edredon Tropical 1 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical1.jpeg"},
+    {nombre: "Edredon Tropical 2 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical2.jpeg"},
+    {nombre: "Edredon Tropical 3 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical3.jpeg"},
+    {nombre: "Edredon Tropical 4 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical4.jpeg"},
+    {nombre: "Edredon Tropical 5 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical5.jpeg"},
+    {nombre: "Edredon Tropical 6 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical6.jpeg"},
+    {nombre: "Edredon Tropical 7 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical7.jpeg"},
+    {nombre: "Edredon Tropical 8 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical8.jpeg"},
+    {nombre: "Edredon Tropical 9 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical9.jpeg"},
+    {nombre: "Edredon Tropical 10 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical10.jpeg"},
+    
     {nombre: "Edredon llano Negro", precio: 30, img: "img/Edredones/Edredon_LLano_Negro.jpeg"},
     {nombre: "Edredon llano Beige", precio: 30, img: "img/Edredones/Edredon_LLano_Beige.jpeg"},
     {nombre: "Edredon llano Cyan", precio: 30, img: "img/Edredones/Edredon_LLano_Cyan.jpeg"},
@@ -48,14 +48,13 @@ const productos = {
     {nombre: "Edredon llano Morado Claro", precio: 30, img: "img/Edredones/Edredon_LLano_Morado_Claro.jpeg"},
     {nombre: "Edredon llano Rojo", precio: 30, img: "img/Edredones/Edredon_LLano_Rojo.jpeg"},
     {nombre: "Edredon llano Verde Claro", precio: 30, img: "img/Edredones/Edredon_LLano_Verde_Claro.jpeg"},
-
     {nombre: "Edredon Estampado 1", precio: 39, img: "img/Edredones/Edredon_Estampado1.jpeg"},
     {nombre: "Edredon Estampado 2", precio: 39, img: "img/Edredones/Edredon_Estampado2.jpeg"},
     {nombre: "Edredon Estampado 3", precio: 39, img: "img/Edredones/Edredon_Estampado3.jpeg"},
     {nombre: "Edredon Estampado 4", precio: 39, img: "img/Edredones/Edredon_Estampado4.jpeg"},
     {nombre: "Edredon Estampado 5", precio: 39, img: "img/Edredones/Edredon_Estampado5.jpeg"},
     {nombre: "Edredon Estampado 6", precio: 39, img: "img/Edredones/Edredon_Estampado6.jpeg"},
-    {nombre: "Edredon Estampado 7", precio: 39, img: "img/Edredones/Edredon_Estampado7.jpeg"},
+    {nombre: "Edredon Estampado 7", precio: 39, img: "img/Edredones/Edredon_Estampado7.jpeg"}
   ],
   carteras: [
     {nombre: "Coach Blanco", precio: 35, img: "img/Carteras 1.1/Coach_Blanco.jpeg"},
@@ -72,119 +71,175 @@ const productos = {
     {nombre: "The Tote Bag Snoopy 2", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Blanco2.jpeg"},
     {nombre: "The Tote Bag Snoopy 3", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Negro1.jpeg"},
     {nombre: "The Tote Bag Snoopy 4", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Negro2.jpeg"},
-    {nombre: "The Tote Bag Snoopy 5", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Verde.jpeg"},
+    {nombre: "The Tote Bag Snoopy 5", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Verde.jpeg"}
   ],
   sabanas: [
-    {nombre: "Sabana con Estampado 1", precio: 35, img: "img/Sabanas/Sabana_Estampado1.jpeg"},
-    {nombre: "Sabana con Estampado 2", precio: 35, img: "img/Sabanas/Sabana_Estampado2.jpeg"},
-    {nombre: "Sabana con Estampado 3", precio: 35, img: "img/Sabanas/Sabana_Estampado3.jpeg"},
-    {nombre: "Sabana con Estampado 4", precio: 35, img: "img/Sabanas/Sabana_Estampado4.jpeg"}
+    {nombre: "Sabana con Estampado 1 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado1.jpeg"},
+    {nombre: "Sabana con Estampado 2 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado2.jpeg"},
+    {nombre: "Sabana con Estampado 3 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado3.jpeg"},
+    {nombre: "Sabana con Estampado 4 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado4.jpeg"}
   ]
 };
 
-// Función para generar productos
-function generarProductos(categoria) {
+/* ---------------------------
+   Contador global en navbar
+   --------------------------- */
+function actualizarContadorCarrito() {
+  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  const totalItems = carrito.reduce((sum, p) => sum + (p.cantidad || 0), 0);
+  const span = document.getElementById("contador-carrito");
+  if (span) span.textContent = totalItems > 0 ? `(${totalItems})` : "";
+}
+
+/* ---------------------------
+   Generar catálogo
+   --------------------------- */
+function generarProductos(categoria, filtro = "") {
   const catalogo = document.querySelector(".catalogo");
+  if (!catalogo) return;
   catalogo.innerHTML = "";
 
   const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-  productos[categoria].forEach(p => {
-    const div = document.createElement("div");
-    div.classList.add("producto");
+  productos[categoria]
+    .filter(p => p.nombre.toLowerCase().includes(filtro.toLowerCase()))
+    .forEach(p => {
+      const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
+      const productoEnCarrito = carrito.find(item => item.nombre === p.nombre);
+      const cantidad = productoEnCarrito ? productoEnCarrito.cantidad : 0;
 
-    const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
+      const div = document.createElement("div");
+      div.classList.add("producto");
 
-    div.innerHTML = `
-      <img src="${p.img}" alt="${p.nombre}" loading="lazy">
-      <h2>${p.nombre}</h2>
-      ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
-      ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}
-      <button class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
-    `;
-
-    catalogo.appendChild(div);
-  });
+      div.innerHTML = `
+        <img src="${p.img}" alt="${p.nombre}" loading="lazy">
+        <h2>${p.nombre}</h2>
+        ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
+        <button type="button" class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
+        <div class="acciones">
+          <button type="button" class="btn-restar" data-nombre="${p.nombre}">➖</button>
+          <span class="cantidad-display" data-nombre="${p.nombre}">${cantidad}</span>
+          <button type="button" class="btn-sumar" data-nombre="${p.nombre}">➕</button>
+        </div>
+      `;
+      catalogo.appendChild(div);
+    });
 
   asignarEventosFavoritos();
+  asignarEventosAcciones();
+  actualizarContadorCarrito();
 }
 
-// Función para asignar eventos a botones de favoritos
+/* ---------------------------
+   Eventos favoritos
+   --------------------------- */
 function asignarEventosFavoritos() {
   document.querySelectorAll(".btn-favorito").forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
       const nombre = btn.getAttribute("data-nombre");
       let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-
-      // Buscar el producto
       const producto = Object.values(productos).flat().find(p => p.nombre === nombre);
+      const idx = favoritos.findIndex(fav => fav.nombre === nombre);
 
-      // Revisar si ya existe en favoritos
-      const index = favoritos.findIndex(fav => fav.nombre === nombre);
-
-      if (index !== -1) {
-        // Quitar de favoritos
-        favoritos.splice(index, 1);
+      if (idx !== -1) {
+        favoritos.splice(idx, 1);
         btn.textContent = "🤍";
       } else {
-        // Agregar objeto completo
         favoritos.push(producto);
         btn.textContent = "❤️";
       }
-
       localStorage.setItem('favoritos', JSON.stringify(favoritos));
+      if (typeof cargarFavoritos === "function") cargarFavoritos();
     });
   });
 }
 
-// Función para el buscador
+/* ---------------------------
+   Acciones (+ / -) en catálogo y favoritos
+   --------------------------- */
+function asignarEventosAcciones() {
+  document.querySelectorAll(".btn-sumar").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const nombre = btn.getAttribute("data-nombre");
+      cambiarCantidadPorNombre(nombre, 1);
+    });
+  });
+
+  document.querySelectorAll(".btn-restar").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const nombre = btn.getAttribute("data-nombre");
+      cambiarCantidadPorNombre(nombre, -1);
+    });
+  });
+}
+
+/* ---------------------------
+   Buscar productos (filtro)
+   --------------------------- */
 function buscarProductos(categoria) {
   const input = document.getElementById("buscador");
   if (!input) return;
 
   input.addEventListener("input", () => {
-    const filter = input.value.toLowerCase();
-    const catalogo = document.querySelector(".catalogo");
-    catalogo.innerHTML = "";
-
-    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-
-    productos[categoria]
-      .filter(p => p.nombre.toLowerCase().includes(filter))
-      .forEach(p => {
-        const div = document.createElement("div");
-        div.classList.add("producto");
-
-        const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
-
-        div.innerHTML = `
-          <img src="${p.img}" alt="${p.nombre}" loading="lazy">
-          <h2>${p.nombre}</h2>
-          ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
-          ${p.precio > 0 ? `<a class="btn-wsp" href="https://wa.me/593963210127?text=Hola! Quiero comprar el ${encodeURIComponent(p.nombre)}" target="_blank">Comprar</a>` : ""}
-          <button class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
-        `;
-
-        catalogo.appendChild(div);
-      });
-
-    asignarEventosFavoritos();
+    generarProductos(categoria, input.value);
   });
 }
 
-// Detecta la categoría según la página
+/* ---------------------------
+   Cambiar cantidad por nombre
+   --------------------------- */
+function cambiarCantidadPorNombre(nombre, delta) {
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  const idx = carrito.findIndex(p => p.nombre === nombre);
+
+  if (idx !== -1) {
+    carrito[idx].cantidad += delta;
+    if (carrito[idx].cantidad <= 0) carrito.splice(idx, 1);
+  } else if (delta > 0) {
+    const producto = Object.values(productos).flat().find(p => p.nombre === nombre);
+    if (!producto) return;
+    carrito.push({...producto, cantidad: 1});
+  }
+
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+  actualizarContadorCarrito();
+
+  // Actualizar solo la cantidad en el DOM
+  const display = document.querySelector(`.cantidad-display[data-nombre="${nombre}"]`);
+  if (display) {
+    const productoEnCarrito = carrito.find(p => p.nombre === nombre);
+    display.textContent = productoEnCarrito ? productoEnCarrito.cantidad : 0;
+  }
+
+  if (typeof cargarFavoritos === "function") cargarFavoritos();
+  if (typeof cargarCarrito === "function") cargarCarrito();
+}
+
+/* ---------------------------
+   Utilidades
+   --------------------------- */
+function obtenerCategoriaActual() {
+  const pagina = window.location.pathname.split("/").pop();
+  if (pagina.includes("perfumes")) return "perfumes";
+  if (pagina.includes("relojes")) return "relojes";
+  if (pagina.includes("edredones")) return "edredones";
+  if (pagina.includes("sabanas")) return "sabanas";
+  if (pagina.includes("carteras")) return "carteras";
+  return "";
+}
+
+/* ---------------------------
+   Inicialización al cargar
+   --------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
-  const pagina = window.location.pathname.split("/").pop(); // ejemplo: "perfumes.html"
-  let categoria = "";
-
-  if (pagina.includes("perfumes")) categoria = "perfumes";
-  else if (pagina.includes("relojes")) categoria = "relojes";
-  else if (pagina.includes("edredones")) categoria = "edredones";
-  else if (pagina.includes("sabanas")) categoria = "sabanas";
-  else if (pagina.includes("carteras")) categoria = "carteras";
-
+  const categoria = obtenerCategoriaActual();
   if (categoria) {
     generarProductos(categoria);
     buscarProductos(categoria);
   }
+  actualizarContadorCarrito();
 });
