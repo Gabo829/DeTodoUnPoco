@@ -92,6 +92,23 @@ header {
   border-radius: 10px;
 }
 
+.media {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Control de hover para reproducir/pausar */
+.video-hover {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.video-hover:hover {
+  transform: scale(1.02);
+}
+
 /* Nombre de los productos (títulos) */
 .producto h2 {
   font-size: clamp(0.8rem, 2.5vw, 1rem);

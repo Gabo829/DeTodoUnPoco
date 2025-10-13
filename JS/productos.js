@@ -1,6 +1,5 @@
 const productos = {
   perfumes: [
-    {nombre:"Demostracion", img: "img/Relojes para Hombre/Demostracion.mp4"},
     {nombre: "Invictus Victory", precio: 30, img: "img/Perfumes 1.1 para Hombre/Invictus.jpeg"},
     {nombre: "Bad Boy", precio: 30, img: "img/Perfumes 1.1 para Hombre/Bad_Boy.jpeg"},
     {nombre: "Phantom Rabanne", precio: 30, img: "img/Perfumes 1.1 para Hombre/Phantom.jpeg"},
@@ -21,6 +20,7 @@ const productos = {
     {nombre: "Versace Eros Flame", precio: 30, img: "img/Perfumes 1.1 para Hombre/Versace_Eros_Flame.jpeg"}
   ],
   relojes: [
+    {nombre:"Demostracion", img: "img/Relojes para Hombre/Demostracion.mp4"},
     {nombre: "Rolex de Hombre 1", precio: 35, img: "img/Relojes para Hombre/Rolex_1.jpeg"},
     {nombre: "Rolex de Hombre 2", precio: 35, img: "img/Relojes para Hombre/Rolex_2.jpeg"},
     {nombre: "Rolex de Hombre 3", precio: 35, img: "img/Relojes para Hombre/Rolex_3.jpeg"},
@@ -130,18 +130,29 @@ function generarProductos(categoria, filtro = "") {
   const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
   const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-  productos[categoria]
-    .filter(p => p.nombre.toLowerCase().includes(filtro.toLowerCase()))
-    .forEach(p => {
+productos[categoria]
+  .filter(p => p.nombre.toLowerCase().includes(filtro.toLowerCase()))
+  .forEach(p => {
+    const esVideo = p.img.endsWith(".mp4");
+    const div = document.createElement("div");
+    div.classList.add("producto");
+
+    if (esVideo) {
+      // 🎥 Mostrar video con autoplay, loop, mute y controles
+      div.innerHTML = `
+        <video class="media" autoplay loop muted controls playsinline>
+          <source src="${p.img}" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+      `;
+    } else {
+      // 🖼️ Productos normales
       const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
       const productoEnCarrito = carrito.find(item => item.nombre === p.nombre);
       const cantidad = productoEnCarrito ? productoEnCarrito.cantidad : 0;
 
-      const div = document.createElement("div");
-      div.classList.add("producto");
-
       div.innerHTML = `
-        <img src="${p.img}" alt="${p.nombre}" loading="lazy">
+        <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media">
         <h2>${p.nombre}</h2>
         ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
         <button type="button" class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
@@ -151,8 +162,10 @@ function generarProductos(categoria, filtro = "") {
           <button type="button" class="btn-sumar" data-nombre="${p.nombre}">➕</button>
         </div>
       `;
-      catalogo.appendChild(div);
-    });
+    }
+
+    catalogo.appendChild(div);
+  });
 
   asignarEventosFavoritos();
   asignarEventosAcciones();
