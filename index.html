@@ -1,5 +1,31 @@
 <!DOCTYPE html>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogos de Compras</title>
+
+  <!-- Favicon principal -->
+  <link rel="icon" type="image/png" sizes="32x32" href="img/Icono/Icono.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/Icono/Icono.png">
+
+  <!-- Soporte para Apple -->
+  <link rel="apple-touch-icon" href="img/Icono/Icono.png">
+
+  <!-- Color de fondo para Windows / Android -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- Fuentes y estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css">
+
+  <!-- Scripts -->
+  <script src="JS/productos.js" defer></script>
+  <script src="JS/favoritos.js" defer></script>
+  <script src="JS/carrito.js" defer></script>
+</head>
+
+<body>
   <nav class="navbar">
     <a href="index.html">Inicio</a>
     <a href="favoritos.html">Favoritos</a>
@@ -7,22 +33,6 @@
     <a href="carrito.html">🛒 <span id="contador-carrito"></span></a>
   </nav>
 
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogos de Compras</title>
-<link rel="stylesheet" href="CSS/style.css">
-<script src="JS/productos.js" defer></script>
-<script src="JS/favoritos.js" defer></script>
-<script src="JS/carrito.js" defer></script>
-</head>
-
-<!-- Agregar justo antes de </body> en todas las páginas -->
-<a href="https://wa.me/593963210127?text=Si tienes alguna duda o quieres mas info sobre un producto no dudes en escribirme" 
-   class="btn-wsp-flotante" target="_blank">💬</a>
-
-<body>
   <header>
     <h1 class="titulo-principal">Bienvenido a DeTodoUnPoco</h1>
     <h2 class="subtitulo">Elige un catálogo para ver los productos</h2>
@@ -31,37 +41,36 @@
   <section class="catalogo">
     <div class="producto">
       <img src="img/Perfumes 1.1 para Hombre/Invictus.jpeg" alt="Catálogo de Perfumes">
-      <h2></h2>
       <a class="btn-wsp" href="perfumes.html">Perfumes</a>
     </div>
 
     <div class="producto">
       <img src="img/Relojes para Hombre/Rolex_1.jpeg" alt="Catálogo de Relojes">
-      <h2></h2>
       <a class="btn-wsp" href="relojes.html">Relojes</a>
     </div>
 
     <div class="producto">
       <img src="img/Edredones/Edredon_de_2_Plazas_Tropical1.jpeg" alt="Catálogo de Edredones">
-      <h2></h2>
       <a class="btn-wsp" href="edredones.html">Edredones</a>
     </div>
 
     <div class="producto">
       <img src="img/Sabanas/Sabana_Estampado1.jpeg" alt="Catálogo de Sabanas">
-      <h2></h2>
       <a class="btn-wsp" href="sabanas.html">Sabanas</a>
     </div>
 
     <div class="producto">
       <img src="img/Carteras 1.1/Coach_con_Diseño_de_Cerezas.jpeg" alt="Catálogo de Carteras">
-      <h2></h2>
       <a class="btn-wsp" href="carteras.html">Carteras</a>
     </div>
   </section>
-</body>
 
-<footer>
-  <p>© 2025 DeTodoUnPoco - Todos los derechos reservados</p>
-</footer>
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/593963210127?text=Si tienes alguna duda o quieres mas info sobre un producto no dudes en escribirme"
+     class="btn-wsp-flotante" target="_blank">💬</a>
+
+  <footer>
+    <p>© 2025 DeTodoUnPoco - Todos los derechos reservados</p>
+  </footer>
+</body>
 </html>
