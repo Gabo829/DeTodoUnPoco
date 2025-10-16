@@ -106,6 +106,11 @@ const productos = {
     {nombre: "Sabana con Estampado 2 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado2.jpeg"},
     {nombre: "Sabana con Estampado 3 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado3.jpeg"},
     {nombre: "Sabana con Estampado 4 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado4.jpeg"}
+  ],
+  rifas: [
+    {nombre: "Rifa 1 - Phantom Rabanne", precio: 2, img: "img/Perfumes 1.1 para Hombre/Phantom.jpeg"},
+    {nombre: "Rifa 2 - Rolex para Hombre", precio: 2, img: "img/Relojes para Hombre/Rolex_1.jpeg"},
+    {nombre: "Rifa 3 - Coach Negra", precio: 2, img: "img/Carteras 1.1/Coach_Negro.jpeg"}
   ]
 };
 
@@ -138,15 +143,16 @@ productos[categoria]
     div.classList.add("producto");
 
     if (esVideo) {
-      // 🎥 Mostrar video con autoplay, loop, mute y controles
+      // 🎥 Mostrar el video con autoplay, mute y controles
       div.innerHTML = `
-        <video class="media" autoplay loop muted controls playsinline>
+        <video controls autoplay muted playsinline class="media">
           <source src="${p.img}" type="video/mp4">
           Tu navegador no soporta el video.
         </video>
       `;
+      
     } else {
-      // 🖼️ Productos normales
+      // 🖼️ Mostrar los productos normales
       const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
       const productoEnCarrito = carrito.find(item => item.nombre === p.nombre);
       const cantidad = productoEnCarrito ? productoEnCarrito.cantidad : 0;
@@ -270,6 +276,7 @@ function obtenerCategoriaActual() {
   if (pagina.includes("edredones")) return "edredones";
   if (pagina.includes("sabanas")) return "sabanas";
   if (pagina.includes("carteras")) return "carteras";
+  if (pagina.includes("rifas")) return "rifas";
   return "";
 }
 
