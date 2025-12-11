@@ -69,6 +69,11 @@ footer {
   padding: 20px;
 }
 
+.cantidad-display {
+  color: #0a0a0a; /* <<-- ¡AQUÍ ESTÁ EL CAMBIO DE COLOR! -->> */
+  display: inline-block;
+}
+
 .producto {
   background: #c9c6c6;
   border-radius: 12px;
@@ -234,6 +239,7 @@ footer {
 /* Contenedor de productos del carrito */
 #lista-carrito {
   display: grid;
+  color: #0a0a0a;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Igual que catálogo */
   gap: 20px;
   padding: 20px;
