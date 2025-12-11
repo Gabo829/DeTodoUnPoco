@@ -1,24 +1,24 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f7f7f7;
+  background: #1f1f1f;
   margin: 0;
   padding: 0;
 }
 
+header {
+  background: #00b33c;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
+
 footer {
-  background: #222;
+  background: #333;
   color: #ccc;
   text-align: center;
   padding: 10px;
   margin-top: 140px;
   font-size: 0.9rem;
-}
-
-header {
-  background: #05d150;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
 }
 
 .navbar {
@@ -43,7 +43,7 @@ header {
   text-align: center;
   font-size: 2rem;
   color: white;
-  background: linear-gradient(90deg, #28a745, #218838);
+  background: linear-gradient(90deg, #1f1f1f, #218838);
   padding: 15px;
   border-radius: 10px;
   margin: 20px auto;
@@ -70,7 +70,7 @@ header {
 }
 
 .producto {
-  background: #fff;
+  background: #c9c6c6;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 15px;
@@ -114,6 +114,7 @@ header {
   font-size: clamp(0.8rem, 2.5vw, 1rem);
   margin: 10px 0 5px 0;
   font-weight: bold;
+  color: #000000;
 }
 
 /* Precio de los productos */
@@ -285,5 +286,17 @@ header {
   text-align: center;
   margin: 30px;
   font-size: 1.2rem;
-  color: #555;
+  color: white;
+}
+
+/* Configuración de Fuente */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #e5e7eb;
+    min-height: 100vh;
+}
+
+/* Clase para aplicar el giro */
+.animate-slot-spin {
+    animation: slot-spin 0.8s linear infinite;
 }
