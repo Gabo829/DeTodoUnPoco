@@ -19,37 +19,41 @@ const productos = {
     {nombre: "Versace Pour Homme", precio: 30, img: "img/Perfumes 1.1 para Hombre/Versace_Pour_Homme.jpeg"},
     {nombre: "Versace Eros Flame", precio: 30, img: "img/Perfumes 1.1 para Hombre/Versace_Eros_Flame.jpeg"}
   ],
+  tecnologia: [
+    {nombre: "Airpods Pro 2", precio: 30, img: "img/Tecnologia/Airpods_2_Pro_1.1.jpeg"}
+
+  ],
   relojes: [
     {nombre:"Demostracion", img: "img/Relojes para Hombre/Demostracion.mp4"},
-    {nombre: "Rolex de Hombre 1", precio: 35, img: "img/Relojes para Hombre/Rolex_1.jpeg"},
-    {nombre: "Rolex de Hombre 2", precio: 35, img: "img/Relojes para Hombre/Rolex_2.jpeg"},
-    {nombre: "Rolex de Hombre 3", precio: 35, img: "img/Relojes para Hombre/Rolex_3.jpeg"},
-    {nombre: "Rolex de Hombre 4", precio: 35, img: "img/Relojes para Hombre/Rolex_4.jpeg"},
-    {nombre: "Rolex de Hombre 5", precio: 35, img: "img/Relojes para Hombre/Rolex_5.jpeg"},
-    {nombre: "Rolex de Hombre 6", precio: 35, img: "img/Relojes para Hombre/Rolex_6.jpeg"},
-    {nombre: "Rolex de Hombre 7", precio: 35, img: "img/Relojes para Hombre/Rolex_7.jpeg"},
-    {nombre: "Rolex de Hombre 8", precio: 35, img: "img/Relojes para Hombre/Rolex_8.jpeg"},
-    {nombre: "Rolex de Hombre 9", precio: 35, img: "img/Relojes para Hombre/Rolex_9.jpeg"},
-    {nombre: "Rolex de Hombre 10", precio: 35, img: "img/Relojes para Hombre/Rolex_10.jpeg"},
-    {nombre: "Rolex de Hombre 11", precio: 35, img: "img/Relojes para Hombre/Rolex_11.jpeg"},
-    {nombre: "Rolex de Hombre 12", precio: 35, img: "img/Relojes para Hombre/Rolex_12.jpeg"},
-    {nombre: "Rolex de Hombre 13", precio: 35, img: "img/Relojes para Hombre/Rolex_13.jpeg"},
-    {nombre: "Rolex de Hombre 14", precio: 35, img: "img/Relojes para Hombre/Rolex_14.jpeg"},
-    {nombre: "Rolex de Hombre 15", precio: 35, img: "img/Relojes para Hombre/Rolex_15.jpeg"},
-    {nombre: "Rolex de Hombre 16", precio: 35, img: "img/Relojes para Hombre/Rolex_16.jpeg"},
-    {nombre: "Rolex de Hombre 17", precio: 35, img: "img/Relojes para Hombre/Rolex_17.jpeg"},
-    {nombre: "Rolex de Hombre 18", precio: 35, img: "img/Relojes para Hombre/Rolex_18.jpeg"},
-    {nombre: "Rolex de Hombre 19", precio: 35, img: "img/Relojes para Hombre/Rolex_19.jpeg"},
-    {nombre: "Rolex de Hombre 20", precio: 35, img: "img/Relojes para Hombre/Rolex_20.jpeg"},
-    {nombre: "Rolex de Hombre 21", precio: 35, img: "img/Relojes para Hombre/Rolex_21.jpeg"},
-    {nombre: "Rolex de Hombre 22", precio: 35, img: "img/Relojes para Hombre/Rolex_22.jpeg"},
-    {nombre: "Rolex de Hombre 23", precio: 35, img: "img/Relojes para Hombre/Rolex_23.jpeg"},
-    {nombre: "Rolex de Hombre 24", precio: 35, img: "img/Relojes para Hombre/Rolex_24.jpeg"},
-    {nombre: "Rolex de Hombre 25", precio: 35, img: "img/Relojes para Hombre/Rolex_25.jpeg"},
-    {nombre: "Rolex de Hombre 26", precio: 35, img: "img/Relojes para Hombre/Rolex_26.jpeg"},
-    {nombre: "Rolex de Hombre 27", precio: 35, img: "img/Relojes para Hombre/Rolex_27.jpeg"},
-    {nombre: "Rolex de Hombre 28", precio: 35, img: "img/Relojes para Hombre/Rolex_28.jpeg"},
-    {nombre: "Rolex de Hombre 29", precio: 35, img: "img/Relojes para Hombre/Rolex_29.jpeg"}
+    {nombre: "Rolex de Hombre 1", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_1.jpeg"},
+    {nombre: "Rolex de Hombre 2", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_2.jpeg"},
+    {nombre: "Rolex de Hombre 3", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_3.jpeg"},
+    {nombre: "Rolex de Hombre 4", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_4.jpeg"},
+    {nombre: "Rolex de Hombre 5", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_5.jpeg"},
+    {nombre: "Rolex de Hombre 6", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_6.jpeg"},
+    {nombre: "Rolex de Hombre 7", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_7.jpeg"},
+    {nombre: "Rolex de Hombre 8", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_8.jpeg"},
+    {nombre: "Rolex de Hombre 9", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_9.jpeg"},
+    {nombre: "Rolex de Hombre 10", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_10.jpeg"},
+    {nombre: "Rolex de Hombre 11", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_11.jpeg"},
+    {nombre: "Rolex de Hombre 12", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_12.jpeg"},
+    {nombre: "Rolex de Hombre 13", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_13.jpeg"},
+    {nombre: "Rolex de Hombre 14", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_14.jpeg"},
+    {nombre: "Rolex de Hombre 15", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_15.jpeg"},
+    {nombre: "Rolex de Hombre 16", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_16.jpeg"},
+    {nombre: "Rolex de Hombre 17", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_17.jpeg"},
+    {nombre: "Rolex de Hombre 18", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_18.jpeg"},
+    {nombre: "Rolex de Hombre 19", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_19.jpeg"},
+    {nombre: "Rolex de Hombre 20", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_20.jpeg"},
+    {nombre: "Rolex de Hombre 21", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_21.jpeg"},
+    {nombre: "Rolex de Hombre 22", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_22.jpeg"},
+    {nombre: "Rolex de Hombre 23", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_23.jpeg"},
+    {nombre: "Rolex de Hombre 24", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_24.jpeg"},
+    {nombre: "Rolex de Hombre 25", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_25.jpeg"},
+    {nombre: "Rolex de Hombre 26", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_26.jpeg"},
+    {nombre: "Rolex de Hombre 27", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_27.jpeg"},
+    {nombre: "Rolex de Hombre 28", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_28.jpeg"},
+    {nombre: "Rolex de Hombre 29", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_29.jpeg"}
 
   ],
   edredones: [
@@ -108,8 +112,7 @@ const productos = {
     {nombre: "Sabana con Estampado 4 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado4.jpeg"}
   ],
   rifas: [
-    {nombre: "Rifa 1 - Phantom Rabanne", precio: 2, img: "img/Perfumes 1.1 para Hombre/Phantom.jpeg"},
-    {nombre: "Rifa 2 - Rolex para Hombre", precio: 2, img: "img/Relojes para Hombre/Rolex_1.jpeg"},
+    {nombre: "Rifa 2 - Rolex para Hombre", precio: 2, img: "img/Relojes 1.1 para Hombre/Rolex_1.jpeg"},
     {nombre: "Rifa 3 - Coach Negra", precio: 2, img: "img/Carteras 1.1/Coach_Negro.jpeg"}
   ]
 };
@@ -272,6 +275,7 @@ function cambiarCantidadPorNombre(nombre, delta) {
 function obtenerCategoriaActual() {
   const pagina = window.location.pathname.split("/").pop();
   if (pagina.includes("perfumes")) return "perfumes";
+  if (pagina.includes("tecnologia")) return "tecnologia";
   if (pagina.includes("relojes")) return "relojes";
   if (pagina.includes("edredones")) return "edredones";
   if (pagina.includes("sabanas")) return "sabanas";
