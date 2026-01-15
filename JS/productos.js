@@ -123,20 +123,21 @@ function actualizarContadorCarrito() {
   if (span) span.textContent = totalItems > 0 ? `(${totalItems})` : "";
 }
 
+/* ---------------------------
+   Menú Dropdown "Más"
+   --------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     const btnMas = document.getElementById('btnMas');
     const menuMas = document.getElementById('menuMas');
     const container = document.getElementById('navDropdown');
 
     if (btnMas && menuMas) {
-        // Al hacer clic en el botón "Más"
         btnMas.addEventListener('click', (e) => {
-            e.stopPropagation(); // Evita que el clic cierre el menú inmediatamente
+            e.stopPropagation();
             menuMas.classList.toggle('show');
             container.classList.toggle('active');
         });
 
-        // Cerrar el menú si se hace clic en cualquier otra parte de la página
         window.addEventListener('click', (e) => {
             if (!container.contains(e.target)) {
                 menuMas.classList.remove('show');
@@ -144,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Opcional: Cerrar menú al presionar la tecla Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 menuMas.classList.remove('show');
@@ -172,32 +172,50 @@ function generarProductos(categoria, filtro = "") {
       const div = document.createElement("div");
       div.classList.add("producto");
 
-      if (esVideo) {
-        // 🎥 Mostrar video
+      // Si es un servicio, mostramos diseño especial
+      if (p.esServicio) {
+        div.classList.add("card-servicio");
         div.innerHTML = `
-          <video controls autoplay muted playsinline class="media">
-            <source src="${p.img}" type="video/mp4">
-            Tu navegador no soporta el video.
-          </video>
-          <h2>${p.nombre}</h2>
-        `;
-      } else {
-        // 🖼️ Mostrar productos normales
-        const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
-        const productoEnCarrito = carrito.find(item => item.nombre === p.nombre);
-        const cantidad = productoEnCarrito ? productoEnCarrito.cantidad : 0;
-
-        div.innerHTML = `
-          <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media">
-          <h2>${p.nombre}</h2>
-          ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
-          <button type="button" class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
-          <div class="acciones">
-            <button type="button" class="btn-restar" data-nombre="${p.nombre}">➖</button>
-            <span class="cantidad-display" data-nombre="${p.nombre}">${cantidad}</span>
-            <button type="button" class="btn-sumar" data-nombre="${p.nombre}">➕</button>
+          <div class="media-container">
+            <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media">
           </div>
+          <h2>${p.nombre}</h2>
+          <p style="color:#ccc; font-size:0.9rem; padding:0 10px;">${p.descripcion}</p>
+          <p class="precio">$${p.precio}.00</p>
+          <a href="#" class="btn-wsp" onclick="window.open('https://wa.me/593963210127?text=Info sobre ${p.nombre}', '_blank')">Contratar</a>
         `;
+      } 
+      // Si es producto normal
+      else {
+        if (esVideo) {
+          div.innerHTML = `
+            <div class="media-container">
+              <video controls autoplay muted playsinline class="media">
+                <source src="${p.img}" type="video/mp4">
+                Tu navegador no soporta el video.
+              </video>
+            </div>
+            <h2>${p.nombre}</h2>
+          `;
+        } else {
+          const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
+          const productoEnCarrito = carrito.find(item => item.nombre === p.nombre);
+          const cantidad = productoEnCarrito ? productoEnCarrito.cantidad : 0;
+
+          div.innerHTML = `
+            <div class="media-container">
+              <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media">
+              <button type="button" class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
+            </div>
+            <h2>${p.nombre}</h2>
+            ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
+            <div class="acciones">
+              <button type="button" class="btn-restar" data-nombre="${p.nombre}">➖</button>
+              <span class="cantidad-display" data-nombre="${p.nombre}">${cantidad}</span>
+              <button type="button" class="btn-sumar" data-nombre="${p.nombre}">➕</button>
+            </div>
+          `;
+        }
       }
       catalogo.appendChild(div);
     });
@@ -284,7 +302,6 @@ function cambiarCantidadPorNombre(nombre, delta) {
   localStorage.setItem('carrito', JSON.stringify(carrito));
   actualizarContadorCarrito();
 
-  // Actualizar solo la cantidad en el DOM (del catálogo y de favoritos)
   const displays = document.querySelectorAll(`.cantidad-display[data-nombre="${nombre}"]`);
   displays.forEach(display => {
     const productoEnCarrito = carrito.find(p => p.nombre === nombre);
@@ -307,7 +324,7 @@ function obtenerCategoriaActual() {
   if (pagina.includes("sabanas")) return "sabanas";
   if (pagina.includes("carteras")) return "carteras";
   if (pagina.includes("rifas")) return "rifas";
-  if (pagina.includes("serviciosData")) return "servicios";
+  if (pagina.includes("servicios")) return "servicios";
   return "";
 }
 

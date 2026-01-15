@@ -7,12 +7,12 @@ const serviciosData = [
         whatsapp: "593963210127"
     },
     {
-        id: 3,
+        id: 2,
         titulo: "Envío Express",
         descripcion: "Entrega prioritaria el mismo día para zonas seleccionadas.",
         img: "img/Servicios/Envio_Express",
         whatsapp: "593963210127"
-    }
+    },
 ];
 
 function cargarServicios() {
