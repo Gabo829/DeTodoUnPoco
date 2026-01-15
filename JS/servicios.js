@@ -42,7 +42,7 @@ function cargarServicios() {
 }
 
 function contactarServicio(titulo, precio, telefono) {
-    const mensaje = `Hola, estoy interesado en contratar el servicio de: *${titulo}* (Precio: $${precio}.00). ¿Podrían darme más información?`;
+    const mensaje = `Hola, estoy interesado en contratar el servicio de: *${titulo}*. ¿Podrían darme más información?`;
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
 }

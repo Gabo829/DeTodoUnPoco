@@ -367,7 +367,9 @@ body {
 /* Ajuste para el botón de WhatsApp en servicios */
 .card-servicio .btn-wsp {
     display: block;
-    width: 100%;
+    width: fit-content; /* Hace que el ancho se ajuste al texto */
+    margin-left: auto;
+    margin-right: auto;
     background: #25d366;
     color: white;
     text-decoration: none;
