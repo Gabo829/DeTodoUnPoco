@@ -29,10 +29,20 @@
     <nav class="navbar">
       <a href="index.html">Inicio</a>
       <a href="favoritos.html">Favoritos</a>
-      <a href="rifas.html">Rifas</a>
-      <a href="servicios.html">Servicios</a>
       <a href="ganadores.html">Ganadores</a>
-      <a href="carrito.html">🛒 <span id="contador-carrito"></span></a>
+        <!-- Nuevo Menú Desplegable "Más" -->
+    <div class="dropdown" id="navDropdown">
+      <button class="dropbtn" id="btnMas">
+        Más <span class="arrow-icon"></span>
+      </button>
+
+      <div class="dropdown-content" id="menuMas">
+        <a href="servicios.html">Servicios</a>
+        <a href="rifas.html">Rifas</a>
+      </div>
+    </div>
+        
+       <a href="carrito.html">🛒 <span id="contador-carrito"></span></a>
     </nav>
 
     <header>
