@@ -23,7 +23,7 @@ const productos = {
     { nombre: "Airpods Pro 2", precio: 30, img: "img/Tecnologia/Airpods_2_Pro_1.1.jpeg" }
   ],
   relojes: [
-    { nombre: "Demostracion", img: "img/Relojes para Hombre/Demostracion.mp4" },
+    { nombre: "", img: "img/Relojes para Hombre/Demostracion.mp4" },
     { nombre: "Rolex de Hombre 1", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_1.jpeg" },
     { nombre: "Rolex de Hombre 2", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_2.jpeg" },
     { nombre: "Rolex de Hombre 3", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_3.jpeg" },
@@ -122,6 +122,37 @@ function actualizarContadorCarrito() {
   const span = document.getElementById("contador-carrito");
   if (span) span.textContent = totalItems > 0 ? `(${totalItems})` : "";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const btnMas = document.getElementById('btnMas');
+    const menuMas = document.getElementById('menuMas');
+    const container = document.getElementById('navDropdown');
+
+    if (btnMas && menuMas) {
+        // Al hacer clic en el botón "Más"
+        btnMas.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que el clic cierre el menú inmediatamente
+            menuMas.classList.toggle('show');
+            container.classList.toggle('active');
+        });
+
+        // Cerrar el menú si se hace clic en cualquier otra parte de la página
+        window.addEventListener('click', (e) => {
+            if (!container.contains(e.target)) {
+                menuMas.classList.remove('show');
+                container.classList.remove('active');
+            }
+        });
+
+        // Opcional: Cerrar menú al presionar la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                menuMas.classList.remove('show');
+                container.classList.remove('active');
+            }
+        });
+    }
+});
 
 /* ---------------------------
    Generar catálogo
