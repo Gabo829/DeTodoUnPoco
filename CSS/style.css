@@ -152,6 +152,9 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
+  justify-items: center; /* centra las tarjetas cuando hay columnas extra */
+  max-width: 1400px;    /* limita el ancho total para evitar tarjetas muy anchas */
+  margin: 0 auto;
 }
 
 .cantidad-display {
@@ -186,11 +189,20 @@ footer {
   border-radius: 10px;
 }
 
-.media {
+.media-container {
+  position: relative; /* hace de referencia para el .btn-favorito absoluto */
+  display: inline-block;
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  max-width: 250px; /* coincide con la imagen */
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.media {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 /* Control de hover para reproducir/pausar */
@@ -262,12 +274,12 @@ footer {
 /* Botón de favoritos */
 .btn-favorito {
   position: absolute;
-  top: 25px;    /* Ajustado para que quede dentro de la imagen */
-  right: 25px;  /* Ajustado para que quede dentro de la imagen */
+  top: 6px;    /* más cerca de la esquina */
+  right: 6px;  /* más cerca de la esquina */
   font-size: 1.2rem;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
-  color: #333;
+  background: #eb3838e0; /* rojo más visible pero permitiendo ver el corazón */
+  border: 2px solid rgba(255,255,255,0.9);
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -289,8 +301,8 @@ footer {
 }
 
 .btn-favorito:hover {
-  background: #e04444;
-  transform: scale(1.1);
+  background: rgba(236, 19, 19, 0.85); /* más fuerte al pasar */
+  transform: scale(1.12);
 }
 
 /* Botón eliminar favoritos */
@@ -407,14 +419,13 @@ body {
     animation: slot-spin 0.8s linear infinite;
 }
 
-
-
 /* --- style.css de servicios --- */
-
 .contenedor-servicios {
-    max-width: 1200px;
-    margin: 40px auto;
+    max-width: 1000px;
     padding: 0 20px;
+    justify-items: center; /* centra las tarjetas cuando hay columnas extra */
+    max-width: 1400px;    /* limita el ancho total para evitar tarjetas muy anchas */
+    margin: 0 auto;
 }
 
 .servicio-img-container {
@@ -443,7 +454,6 @@ body {
 }
 
 .servicio-info {
-    padding: 20px;
     text-align: center;
     flex-grow: 1;
     display: flex;
@@ -453,33 +463,41 @@ body {
 
 .servicio-info h2 {
     color: #25d366;
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .servicio-info p {
     color: #ccc;
     font-size: 0.95rem;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 /* Ajuste para el botón de WhatsApp en servicios */
+.card-servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Mantén una altura mínima para uniformidad; ajústalo si necesitas */
+  min-height: auto;
+}
+
 .card-servicio .btn-wsp {
-    display: block;
-    width: fit-content; /* Hace que el ancho se ajuste al texto */
-    margin-left: auto;
-    margin-right: auto;
-    background: #25d366;
-    color: white;
-    text-decoration: none;
-    padding: clamp(6px, 1.2vw, 10px) clamp(10px, 2vw, 18px);
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: clamp(0.8rem, 2vw, 1rem);
-    transition: background 0.3s;
+  display: block;
+  width: fit-content; /* Hace que el ancho se ajuste al texto */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto; /* empuja el botón hacia el final del contenedor */
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  padding: clamp(6px, 1.2vw, 10px) clamp(10px, 2vw, 18px);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  transition: background 0.3s;
 }
 
 .card-servicio .btn-wsp:hover {
