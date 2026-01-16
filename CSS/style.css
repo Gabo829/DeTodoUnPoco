@@ -5,6 +5,9 @@ body {
   padding: 0;
 }
 
+/* Caja por defecto para evitar cálculos de ancho inesperados */
+* { box-sizing: border-box; }
+
 header {
   background: #00b33cb7;
   color: #ffffff;
@@ -16,9 +19,21 @@ footer {
   background: #333;
   color: #ccc;
   text-align: center;
-  padding: 10px;
-  margin-top: 140px;
-  font-size: 0.9rem;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Contenedor interno del footer: limita el ancho del contenido y lo centra
+   para que todas las páginas muestren la misma franja que en Ganadores */
+footer p {
+  margin: 0 auto;
+  line-height: 2.0;
+}
+
+@media (max-width: 480px) {
+  footer p { max-width: 92%; padding: 6px 8px; font-size: 0.9rem; }
 }
 
 /* --- NAVBAR Y NAVEGACIÓN --- */
@@ -34,6 +49,9 @@ footer {
   top: 0;
   z-index: 1000;
 }
+
+/* Asegura que la barra de navegación ocupe todo el ancho y no deje huecos en móvil */
+.navbar { width: 100%; }
 
 .navbar a, .dropbtn {
   color: #fff;
@@ -409,10 +427,15 @@ footer {
 
 /* Configuración de Fuente */
 body {
-    font-family: 'Inter', sans-serif;
-    color: #e5e7eb;
-    min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: #e5e7eb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Empuja el footer hacia abajo cuando el contenido es corto */
+main { flex: 1 0 auto; }
 
 /* Clase para aplicar el giro */
 .animate-slot-spin {
@@ -429,8 +452,8 @@ body {
 }
 
 .servicio-img-container {
-    position: relative;
-    height: 200px;
+  position: relative;
+  height: 180px;
     overflow: hidden;
 }
 
@@ -507,6 +530,24 @@ body {
 /* Responsivo para el catálogo de servicios */
 @media (max-width: 768px) {
     .catalogo {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+}
+
+/* Ajustes extra para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .catalogo {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .servicio-img-container { height: 140px; }
+
+  .titulo-principal { font-size: 1.4rem; padding: 12px; }
+  .subtitulo { font-size: 0.9rem; padding: 8px; }
+
+  /* Evita separación visible entre navbar y contenido en móviles */
+  header { margin: 0; }
+  .navbar { padding: 6px 8px; }
 }
