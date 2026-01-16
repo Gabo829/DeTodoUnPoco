@@ -12,7 +12,7 @@ const serviciosData = [
         descripcion: "Entrega prioritaria el mismo día para zonas seleccionadas.",
         img: "img/Servicios/Envio_Express",
         whatsapp: "593963210127"
-    },
+    }
 ];
 
 function cargarServicios() {
