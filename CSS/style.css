@@ -17,7 +17,7 @@ footer {
   color: #ccc;
   text-align: center;
   padding: 10px;
-  margin-top: 140px;
+  margin-top: 0;
   font-size: 0.9rem;
 }
 
@@ -509,4 +509,14 @@ body {
     .catalogo {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
+}
+
+/* Sticky footer layout: asegura footer abajo cuando el contenido es corto */
+html, body { height: 100%; }
+body { display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
+
+/* Pequeño ajuste para móviles en 'modo escritorio' */
+@media (max-width: 480px) {
+  footer { padding: 12px 8px; font-size: 0.9rem; }
 }
