@@ -1,9 +1,17 @@
+html, body { height: 100%; }
+* { box-sizing: border-box; }
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #0a0a0a;
   margin: 0;
   padding: 0;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+main { flex: 1 0 auto; }
 
 header {
   background: #00b33cb7;
@@ -16,9 +24,10 @@ footer {
   background: #333;
   color: #ccc;
   text-align: center;
-  padding: 10px;
+  padding: 12px 10px;
   margin-top: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  width: 100%;
 }
 
 /* --- NAVBAR Y NAVEGACIÓN --- */
@@ -405,13 +414,6 @@ footer {
   margin: 30px;
   font-size: 1.2rem;
   color: white;
-}
-
-/* Configuración de Fuente */
-body {
-    font-family: 'Inter', sans-serif;
-    color: #e5e7eb;
-    min-height: 100vh;
 }
 
 /* Clase para aplicar el giro */
