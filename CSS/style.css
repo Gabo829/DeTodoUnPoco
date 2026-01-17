@@ -541,7 +541,7 @@ footer {
     min-height: 100vh;
   }
 
-  main, .contenedor-servicios { flex: 1 0 auto; }
+ .contenedor-servicios { flex: 1 0 auto; }
 
   footer { margin-top: 0; }
 }
