@@ -1,17 +1,10 @@
-html, body { height: 100%; }
-* { box-sizing: border-box; }
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, sans-serif;
   background: #0a0a0a;
+  color: #e5e7eb;
   margin: 0;
   padding: 0;
-  color: #e5e7eb;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
-
-main { flex: 1 0 auto; }
 
 header {
   background: #00b33cb7;
@@ -24,10 +17,9 @@ footer {
   background: #333;
   color: #ccc;
   text-align: center;
-  padding: 12px 10px;
-  margin-top: 0;
-  font-size: 0.95rem;
-  width: 100%;
+  padding: 10px;
+  margin-top: 140px;
+  font-size: 0.9rem;
 }
 
 /* --- NAVBAR Y NAVEGACIÓN --- */
@@ -511,22 +503,4 @@ footer {
     .catalogo {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-}
-
-/* Asegura que los contenedores principales empujen el footer hacia abajo */
-html, body { height: 100%; }
-body { display: flex; flex-direction: column; }
-
-/* Aplica flex-grow a los contenedores de contenido usados en distintas páginas */
-body > .catalogo,
-body > .contenedor-servicios,
-body > #winners-root,
-body > main,
-body > section {
-  flex: 1 0 auto;
-}
-
-/* Pequeño ajuste para móviles en 'modo escritorio' */
-@media (max-width: 480px) {
-  footer { padding: 12px 8px; font-size: 0.9rem; }
 }
