@@ -1,16 +1,9 @@
-html, body {
-  height: 100%;
-}
-
 body {
   font-family: Arial, sans-serif;
   background: #0a0a0a;
   color: #e5e7eb;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 header {
@@ -429,18 +422,6 @@ footer {
     margin: 0 auto;
 }
 
-/* Permitir que la sección de servicios expanda y empuje el footer hacia abajo */
-.contenedor-servicios {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Si existe un <main>, que ocupe el espacio restante */
-main {
-  flex: 1 0 auto;
-}
-
 .servicio-img-container {
     position: relative;
     height: 200px;
@@ -522,4 +503,17 @@ main {
     .catalogo {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
+}
+
+/* Aplicar layout tipo "sticky footer" sólo en pantallas anchas (modo escritorio) */
+@media (min-width: 900px) {
+  html, body { height: 100%; }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Asegurar que el footer no tenga margen extra */
+  footer { margin-top: 0; }
 }
