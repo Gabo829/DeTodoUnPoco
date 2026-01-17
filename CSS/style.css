@@ -7,7 +7,6 @@ body {
 
 /* Caja por defecto para evitar cálculos de ancho inesperados */
 * { box-sizing: border-box; }
-
 header {
   background: #00b33cb7;
   color: #ffffff;
@@ -19,21 +18,11 @@ footer {
   background: #333;
   color: #ccc;
   text-align: center;
-  padding: 10px 18px;
+  padding: 12px 10px;
+  margin-top: 0; /* manejo de espaciado vía flex en el body */
   font-size: 0.95rem;
   width: 100%;
   border-top: 1px solid rgba(255,255,255,0.03);
-}
-
-/* Contenedor interno del footer: limita el ancho del contenido y lo centra
-   para que todas las páginas muestren la misma franja que en Ganadores */
-footer p {
-  margin: 0 auto;
-  line-height: 2.0;
-}
-
-@media (max-width: 480px) {
-  footer p { max-width: 92%; padding: 6px 8px; font-size: 0.9rem; }
 }
 
 /* --- NAVBAR Y NAVEGACIÓN --- */
