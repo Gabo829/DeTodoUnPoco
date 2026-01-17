@@ -110,6 +110,22 @@ const productos = {
   rifas: [
     { nombre: "Rifa 2 - Rolex para Hombre", precio: 2, img: "img/Relojes 1.1 para Hombre/Rolex_1.jpeg" },
     { nombre: "Rifa 3 - Coach Negra", precio: 2, img: "img/Carteras 1.1/Coach_Negro.jpeg" }
+  ],
+    servicios: [
+    {
+      nombre: "Mantenimiento Técnico",
+      descripcion: "Limpieza y optimización de dispositivos electrónicos y computadoras.",
+      img: "img/Servicios/Mantenimiento_Tecnico.jpg",
+      esServicio: true,
+      whatsapp: "593963210127"
+    },
+    {
+      nombre: "Envío Express",
+      descripcion: "Entrega prioritaria el mismo día para zonas seleccionadas.",
+      img: "img/Servicios/Envio_Express",
+      esServicio: true,
+      whatsapp: "593963210127"
+    },
   ]
 };
 
@@ -181,10 +197,9 @@ function generarProductos(categoria, filtro = "") {
           </div>
           <h2>${p.nombre}</h2>
           <p style="color:#ccc; font-size:0.9rem; padding:0 10px;">${p.descripcion}</p>
-          <p class="precio">$${p.precio}.00</p>
-          <a href="#" class="btn-wsp" onclick="window.open('https://wa.me/593963210127?text=Info sobre ${p.nombre}', '_blank')">Contratar</a>
+          <a href="#" class="btn-wsp" onclick="contactarServicio('${p.nombre}', '${p.whatsapp}')">Contratar</a>
         `;
-      } 
+      }
       // Si es producto normal
       else {
         if (esVideo) {
@@ -339,3 +354,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   actualizarContadorCarrito();
 });
+
+/* ---------------------------
+   Contactar servicio vía WhatsApp
+   --------------------------- */
+function contactarServicio(titulo, telefono) {
+  const mensaje = `Hola, estoy interesado en contratar el servicio de: *${titulo}*. ¿Podrían darme más información?`;
+  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+}
