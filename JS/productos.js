@@ -115,9 +115,9 @@ const productos = {
     {
       nombre: "Mantenimiento Técnico",
       descripcion: "Limpieza y optimización de dispositivos electrónicos y computadoras.",
-      img: "img/Servicios/Mantenimiento_Tecnico.jpg",
+      img: "img/Servicios/Mantenimiento_Tecnico.jpeg",
       esServicio: true,
-      whatsapp: "593963210127"
+      whatsapp: "593992816761"
     },
     {
       nombre: "Envío Express",
