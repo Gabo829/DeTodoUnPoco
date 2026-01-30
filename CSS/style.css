@@ -3,6 +3,7 @@ html {
   width: 100%;
   overflow-x: hidden;
 }
+
 body {
   font-family: 'Inter', sans-serif;
   background: #0a0a0a;
@@ -161,7 +162,6 @@ footer {
   width: fit-content;
 }
 
-
 .catalogo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -190,10 +190,12 @@ footer {
   position: relative;
   overflow: hidden;
 }
+
 .producto:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 20px rgba(240, 238, 238, 0.267);
 }
+
 .producto img {
   width: 100%;
   max-width: 250px;
@@ -217,15 +219,18 @@ footer {
   overflow: hidden;
   min-height: auto;
 }
+
 .card-servicio:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 20px rgba(240, 238, 238, 0.267);
 }
+
 .servicio-img-container {
   position: relative;
   height: 200px;
   overflow: hidden;
 }
+
 .servicio-img-container img {
   width: 100%;
   height: 100%;
@@ -233,6 +238,7 @@ footer {
   border-radius: 10px;
   transition: transform 0.5s ease;
 }
+
 .servicio-info {
   text-align: center;
   flex-grow: 1;
@@ -240,16 +246,19 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .servicio-info h2 {
   color: #25d366;
   font-size: 1.2rem;
 }
+
 .servicio-info p {
   color: #ccc;
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 15px;
 }
+
 .card-servicio .btn-wsp {
   display: block;
   width: fit-content;
@@ -267,6 +276,7 @@ footer {
   font-size: clamp(0.8rem, 2vw, 1rem);
   transition: background 0.3s;
 }
+
 .card-servicio .btn-wsp:hover {
   background: #128c7e;
 }
@@ -516,8 +526,6 @@ footer {
     transition: transform 0.5s ease;
 }
 
-
-
 .servicio-info {
     text-align: center;
     flex-grow: 1;
@@ -538,10 +546,7 @@ footer {
     margin-bottom: 15px;
 }
 
-
-
 /* Responsivo para el catálogo de servicios */
-
 @media (max-width: 900px) {
   .catalogo {
     grid-template-columns: repeat(2, 1fr);
@@ -550,6 +555,7 @@ footer {
     box-sizing: border-box;
   }
 }
+
 @media (max-width: 600px) {
   .catalogo {
     grid-template-columns: 1fr;
@@ -557,6 +563,7 @@ footer {
     padding: 5px;
     box-sizing: border-box;
   }
+
   .producto, .card-servicio {
     width: 100%;
     min-width: 0;
@@ -577,6 +584,5 @@ footer {
   }
 
   main, .contenedor-servicios { flex: 1 0 auto; }
-
   footer { margin-top: 0; }
 }

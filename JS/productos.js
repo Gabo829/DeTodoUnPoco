@@ -203,20 +203,17 @@ function generarProductos(categoria, filtro = "") {
       // Si es producto normal
       else {
         if (esVideo) {
+          // CAMBIO: Estructura simplificada y estilos en línea para forzar el tamaño
           div.innerHTML = `
-            <div class="media-container">
-              <video controls autoplay muted playsinline class="media">
+            <div class="media-container" style="height: 300px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center;">
+              <video controls autoplay muted playsinline class="media" style="width: 100%; height: 100%; object-fit: contain;">
                 <source src="${p.img}" type="video/mp4">
                 Tu navegador no soporta el video.
               </video>
-              <div class="producto-info">
-          <h2>${p.nombre}</h2>
-          <div style="height: 100px; visibility: hidden;"></div>
-        </div>
             </div>
-            <h2>${p.nombre}</h2>
+            <h2 style="margin-top: 10px;">${p.nombre || "&nbsp;"}</h2>
           `;
-        } 
+        }
         else {
           const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
           const productoEnCarrito = carrito.find(item => item.nombre === p.nombre);
