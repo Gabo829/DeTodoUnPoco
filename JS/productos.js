@@ -209,10 +209,15 @@ function generarProductos(categoria, filtro = "") {
                 <source src="${p.img}" type="video/mp4">
                 Tu navegador no soporta el video.
               </video>
+              <div class="producto-info">
+          <h2>${p.nombre}</h2>
+          <div style="height: 100px; visibility: hidden;"></div>
+        </div>
             </div>
             <h2>${p.nombre}</h2>
           `;
-        } else {
+        } 
+        else {
           const esFavorito = favoritos.some(fav => fav.nombre === p.nombre) ? "❤️" : "🤍";
           const productoEnCarrito = carrito.find(item => item.nombre === p.nombre);
           const cantidad = productoEnCarrito ? productoEnCarrito.cantidad : 0;
