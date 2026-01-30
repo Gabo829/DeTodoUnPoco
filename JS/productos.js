@@ -23,7 +23,7 @@ const productos = {
     { nombre: "Airpods Pro 2", precio: 30, img: "img/Tecnologia/Airpods_2_Pro_1.1.jpeg" }
   ],
   relojes: [
-    { nombre: "", img: "img/Relojes para Hombre/Demostracion.mp4" },
+    { nombre: "", img: "img/Relojes 1.1 para Hombre/Demostracion.mp4" },
     { nombre: "Rolex de Hombre 1", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_1.jpeg" },
     { nombre: "Rolex de Hombre 2", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_2.jpeg" },
     { nombre: "Rolex de Hombre 3", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_3.jpeg" },
