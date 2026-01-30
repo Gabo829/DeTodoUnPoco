@@ -213,3 +213,4 @@ const renderWinnersSection = () => {
 };
 
 // Renderizar la sección cuando la página cargue
+document.addEventListener('DOMContentLoaded', renderWinnersSection);
