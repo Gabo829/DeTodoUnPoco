@@ -285,7 +285,6 @@ footer {
   position: relative; /* hace de referencia para el .btn-favorito absoluto */
   display: inline-block;
   width: 100%;
-
   border-radius: 10px;
   overflow: hidden;
 }
@@ -443,7 +442,7 @@ footer {
 /* Contenedor de productos del carrito */
 #lista-carrito {
   display: grid;
-  color: #0a0a0a;
+  color: #ffffff;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Igual que catálogo */
   gap: 20px;
   padding: 20px;
