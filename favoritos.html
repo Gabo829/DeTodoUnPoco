@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+
+    <!-- Favicon principal -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/Icono/Icono.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/Icono/Icono.png">
+
+    <!-- Soporte para Apple -->
+    <link rel="apple-touch-icon" href="img/Icono/Icono.png">
+
+    <!-- Color de fondo para Windows / Android -->
+    <meta name="theme-color" content="#000000">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis Favoritos</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="JS/productos.js" defer></script>
+    <script src="JS/favoritos.js" defer></script>
+    <script src="JS/carrito.js" defer></script>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="index.html">Inicio</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="ganadores.html">Ganadores</a>
+        <!-- Nuevo Menú Desplegable "Más" -->
+    <div class="dropdown" id="navDropdown">
+      <button class="dropbtn" id="btnMas">
+        Más <span class="arrow-icon"></span>
+      </button>
+
+      <div class="dropdown-content" id="menuMas">
+        <a href="servicios.html">Servicios</a>
+        <a href="rifas.html">Rifas</a>
+      </div>
+    </div>
+        
+       <a href="carrito.html">🛒 <span id="contador-carrito"></span></a>
+    </nav>
+    <header>
+      <h1 class="titulo-principal">⭐ Mis Productos Favoritos</h1>
+    </header>
+
+    <section class="catalogo" id="lista-favoritos">
+      <!-- Productos favoritos se insertarán aquí -->
+    </section>
+
+    <p id="vacio">Aún no tienes favoritos💔</p>
+  </body>

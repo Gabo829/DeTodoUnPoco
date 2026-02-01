@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <!-- Favicon principal -->
+        <link rel="icon" type="image/png" sizes="32x32" href="img/Icono/Icono.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/Icono/Icono.png">
+
+        <!-- Soporte para Apple -->
+        <link rel="apple-touch-icon" href="img/Icono/Icono.png">
+
+        <!-- Color de fondo para Windows / Android -->
+        <meta name="theme-color" content="#000000">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Ganadores Exclusivos</title>
+        <!-- Carga de Tailwind CSS desde CDN para un diseño moderno y responsive -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Carga de Lucide Icons (Solo SVG, no es una librería React) -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+    
+        <!-- Enlace a estilos personalizados (CSS) -->
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>
+    <body class="bg-[#0a0a0a] text-gray-100 min-h-screen">
+
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="favoritos.html">Favoritos</a>
+            <a href="ganadores.html">Ganadores</a>
+            <!-- Nuevo Menú Desplegable "Más" -->
+        <div class="dropdown" id="navDropdown">
+      <button class="dropbtn" id="btnMas">
+            Más <span class="arrow-icon"></span>
+      </button>
+
+      <div class="dropdown-content" id="menuMas">
+        <a href="servicios.html">Servicios</a>
+        <a href="rifas.html">Rifas</a>
+      </div>
+    </div>
+        
+       <a href="carrito.html">🛒 <span id="contador-carrito"></span></a>
+    </nav>
+
+        <div id="winners-root" class="container mx-auto px-4 py-16">
+        
+            <!-- Contenido generado por JavaScript -->
+
+        </div>
+
+        <!-- Fuentes y estilos -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="CSS/style.css">
+
+        <!-- Scripts -->
+        <script src="JS/productos.js" defer></script>
+        <script src="JS/favoritos.js" defer></script>
+        <script src="JS/carrito.js" defer></script>
+        <script src="JS/ganadores.js" defer></script>
+
+        <footer>
+            <p>© 2025 DeTodoUnPoco - Todos los derechos reservados</p>
+        </footer>
+    </body>

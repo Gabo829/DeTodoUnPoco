@@ -1,0 +1,607 @@
+html {
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #e5e7eb;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+header, .navbar, footer, .catalogo {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+header {
+  background: #00b33cb7;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  background: #333;
+  color: #ccc;
+  text-align: center;
+  padding: 10px;
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+/* --- NAVBAR Y NAVEGACIÓN --- */
+.navbar {
+  background: #333;
+  padding: 0px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a, .dropbtn {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.navbar a:hover, .dropbtn:hover {
+  color: #25d366;
+}
+
+/* --- MENÚ DESPLEGABLE (DROPDOWN) --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* ELIMINADO: .dropdown:hover .dropdown-content 
+   Ahora solo se mostrará cuando tenga la clase .show
+*/
+.dropdown-content {
+  display: none; 
+  position: absolute;
+  background-color: #1a1a1a;
+  min-width: 200px;
+  box-shadow: 0px 15px 30px rgba(0,0,0,0.8);
+  z-index: 1001;
+  border-radius: 12px;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Esta clase se activará mediante JavaScript */
+.dropdown-content.show {
+  display: block;
+  opacity: 1;
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-bottom: 1px solid #222;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #222;
+  color: #25d366;
+}
+
+/* Icono de flecha */
+.arrow-icon {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+  transition: transform 0.3s ease;
+}
+
+/* Rotación cuando el menú está abierto */
+.dropdown.active .arrow-icon {
+  transform: rotate(180deg);
+  border-top-color: #25d366;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Título principal con fondo verde degradado */
+.titulo-principal {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  background: linear-gradient(90deg, #1f1f1f, #218838);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: fit-content;
+}
+
+/* Subtítulo con fondo azul degradado */
+.subtitulo {
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px auto 30px auto;
+  width: fit-content;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.cantidad-display {
+  color: #ffffff; /* <<-- ¡AQUÍ ESTÁ EL CAMBIO DE COLOR! -->> */
+  display: inline-block;
+}
+
+/* Tarjeta de producto */
+.producto {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(240, 238, 238, 0.267);
+}
+
+.producto img {
+  width: 100%;
+  max-width: 250px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Tarjeta de servicio */
+.card-servicio {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: auto;
+}
+
+.card-servicio:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(240, 238, 238, 0.267);
+}
+
+.servicio-img-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.servicio-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.servicio-info {
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.servicio-info h2 {
+  color: #25d366;
+  font-size: 1.2rem;
+}
+
+.servicio-info p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.card-servicio .btn-wsp {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  padding: clamp(6px, 1.2vw, 10px) clamp(10px, 2vw, 18px);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  transition: background 0.3s;
+}
+
+.card-servicio .btn-wsp:hover {
+  background: #128c7e;
+}
+
+.media-container {
+  position: relative; /* hace de referencia para el .btn-favorito absoluto */
+  display: block;
+  width: 100%;
+ /* usar aspecto cuadrado responsivo para que el contenedor ocupe
+  todo el ancho disponible en la tarjeta y mantenga proporción 1:1 */
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Limitar el ancho del contenedor para que coincida con las miniaturas */
+.producto .media-container {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Asegurar que los videos dentro del contenedor respeten el tamaño y se centren */
+.media-container video.media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Control de hover para reproducir/pausar */
+.video-hover {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.video-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Nombre de los productos (títulos) */
+.producto h2 {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  margin: 10px 0 5px 0;
+  font-weight: bold;
+  color: #25d366;
+}
+
+/* Precio de los productos */
+.producto p {
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  margin: 5px 0;
+  color: #ffffff;
+}
+
+/* Botón de WhatsApp */
+.btn-wsp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: clamp(6px, 1.2vw, 10px) clamp(10px, 2vw, 18px);
+  background: #25d366;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-wsp:hover {
+  background: #128c7e;
+  transform: scale(1.05);
+}
+
+.btn-wsp-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: white;
+  font-size: 24px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+
+.btn-wsp-flotante:hover {
+  transform: scale(1.1);
+  background: #1ebe5d;
+}
+
+/* Botón de favoritos */
+.btn-favorito {
+  position: absolute;
+  top: 6px;    /* más cerca de la esquina */
+  right: 6px;  /* más cerca de la esquina */
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: #eb3838e0; /* rojo más visible pero permitiendo ver el corazón */
+  border: 2px solid rgba(255,255,255,0.9);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  
+  /* Estado inicial: Invisible */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+}
+
+/* Mostrar el corazón cuando el mouse entra en la tarjeta del producto */
+.producto:hover .btn-favorito {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-favorito:hover {
+  background: rgba(236, 19, 19, 0.85); /* más fuerte al pasar */
+  transform: scale(1.12);
+}
+
+/* Botón eliminar favoritos */
+.btn-eliminar {
+  display: inline-block;
+  margin-top: 8px;
+  padding: clamp(5px, 1.2vw, 10px) clamp(8px, 2vw, 14px);
+  background: #ff4d4d;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: clamp(0.75rem, 1.8vw, 0.8rem);
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-eliminar:hover {
+  background: #e60000;
+  transform: scale(1.05);
+}
+
+/* Botón de carrito */
+.btn-carrito {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: clamp(6px, 1.2vw, 6px) clamp(8px, 2vw, 7px);
+  background: #ffffff;        /* Fondo blanco */
+  color: #333;                /* Texto oscuro */
+  border: 2px solid #111111;  /* Borde verde estilo WhatsApp */
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-carrito:hover {
+  background: #25d366; /* Verde al pasar el mouse */
+  color: #fff;         /* Texto blanco */
+  transform: scale(1.05);
+}
+
+/* Contenedor de productos del carrito */
+#lista-carrito {
+  display: grid;
+  color: #ffffff;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Igual que catálogo */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Cada producto en el carrito */
+.carrito-producto {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrito-producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Total y botón de comprar arriba */
+.carrito-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* separación entre total y botón */
+  margin: 20px 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.carrito-header button {
+  padding: 8px 16px;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.carrito-header button:hover {
+  background: #1ebe5d;
+  transform: scale(1.05);
+}
+
+#vacio {
+  text-align: center;
+  margin: 30px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* Clase para aplicar el giro */
+.animate-slot-spin {
+    animation: slot-spin 0.8s linear infinite;
+}
+
+/* --- style.css de servicios --- */
+.contenedor-servicios {
+    max-width: 1000px;
+    padding: 0 20px;
+    justify-items: center; /* centra las tarjetas cuando hay columnas extra */
+    max-width: 1400px;    /* limita el ancho total para evitar tarjetas muy anchas */
+    margin: 0 auto;
+}
+
+.servicio-img-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.servicio-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.servicio-info {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.servicio-info h2 {
+    color: #25d366;
+    font-size: 1.2rem;
+}
+
+.servicio-info p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Responsivo para el catálogo de servicios */
+@media (max-width: 900px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  .catalogo {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  .producto, .card-servicio {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
+
+/* Aplicar sticky-footer y expansión de secciones solo en pantallas anchas */
+@media (min-width: 900px) {
+  html, body { height: 100%; }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main, .contenedor-servicios { flex: 1 0 auto; }
+  footer { margin-top: 0; }
+}

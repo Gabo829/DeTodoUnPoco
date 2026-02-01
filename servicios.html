@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Favicon principal -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/Icono/Icono.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/Icono/Icono.png">
+
+    <!-- Soporte para Apple -->
+    <link rel="apple-touch-icon" href="img/Icono/Icono.png">
+
+    <!-- Color de fondo para Windows / Android -->
+    <meta name="theme-color" content="#000000">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Servicios</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="CSS/style.css">
+    
+    <!-- Scripts -->
+    <script src="JS/productos.js" defer></script>
+    <script src="JS/carrito.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+      <a href="index.html">Inicio</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="ganadores.html">Ganadores</a>
+        <!-- Nuevo Menú Desplegable "Más" -->
+    <div class="dropdown" id="navDropdown">
+      <button class="dropbtn" id="btnMas">
+        Más <span class="arrow-icon"></span>
+      </button>
+
+      <div class="dropdown-content" id="menuMas">
+        <a href="servicios.html">Servicios</a>
+        <a href="rifas.html">Rifas</a>
+      </div>
+    </div>
+        
+       <a href="carrito.html">🛒 <span id="contador-carrito"></span></a>
+    </nav>
+
+    <header>
+        <h1 class="titulo-principal">Nuestros Servicios Profesionales</h1>
+        <h2 class="subtitulo">Expertos a tu disposición con los mejores precios del mercado!!
+            Si deseas colocar tu servicio no dudes en escribirme.
+        </h2>
+    </header>
+
+    <main class="contenedor-servicios">
+        <div id="lista-servicios" class="catalogo">
+            <!-- Los servicios se cargarán aquí dinámicamente -->
+        </div>
+    </main>
+
+    <a href="https://wa.me/593963210127?text=Si tienes alguna duda o quieres mas info sobre un servicio no dudes en escribirme"
+     class="btn-wsp-flotante" target="_blank">💬</a>
+
+    <footer>
+        <p>© 2025 DeTodoUnPoco - Todos los derechos reservados</p>
+    </footer>
+</body>
