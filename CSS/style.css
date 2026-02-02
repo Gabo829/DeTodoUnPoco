@@ -44,7 +44,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px; /* reducido para apretar palabras */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -58,7 +58,7 @@ footer {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 8px 10px; /* reducido para apretar palabras */
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -380,6 +380,22 @@ footer {
 .btn-wsp-flotante:hover {
   transform: scale(1.1);
   background: #1ebe5d;
+}
+
+/* Estilos para el enlace del carrito en la navbar */
+.nav-carrito-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
+}
+.nav-carrito-link svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  stroke: currentColor;
+  fill: none;
 }
 
 /* Botón de favoritos */

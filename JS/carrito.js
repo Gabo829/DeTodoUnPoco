@@ -6,15 +6,24 @@ function cargarCarrito() {
   if (!contenedor || !totalDiv) return;
   contenedor.innerHTML = "";
 
-  let total = 0;
+  let subtotal = 0;
+  let totalItems = 0;
 
   carrito.forEach((producto, index) => {
-    total += producto.precio * producto.cantidad;
+    subtotal += producto.precio * producto.cantidad;
+    totalItems += producto.cantidad;
 
     const div = document.createElement('div');
     div.classList.add('producto');
     div.innerHTML = `
-      <img src="${producto.img}" alt="${producto.nombre}" loading="lazy">
+      <div class="media-container">
+        <img src="${producto.img}" alt="${producto.nombre}" loading="lazy" class="media">
+        <button class="btn-eliminar-icon" onclick="eliminarCarrito(${index})" aria-label="Eliminar producto del carrito">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M9 3h6a1 1 0 0 1 1 1v1h3a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h3V4a1 1 0 0 1 1-1zm-4 6h14l-1 12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 9z"></path>
+          </svg>
+        </button>
+      </div>
       <h2>${producto.nombre}</h2>
       <p>$${producto.precio}.00 x ${producto.cantidad} = $${producto.precio * producto.cantidad}.00</p>
 
@@ -23,13 +32,20 @@ function cargarCarrito() {
         <span>${producto.cantidad}</span>
         <button onclick="cambiarCantidad(${index}, 1)">➕</button>
       </div>
-
-      <div class="btn-eliminar" onclick="eliminarCarrito(${index})">🗑 Eliminar</div>
     `;
     contenedor.appendChild(div);
   });
 
-  totalDiv.textContent = "Total: $" + total + ".00";
+  // calcular descuento automático del 10% si hay 3 o más items (suma de cantidades)
+  let descuento = 0;
+  let total = subtotal;
+  if (totalItems >= 3) {
+    descuento = Math.round(subtotal * 0.10 * 100) / 100; // redondeo a 2 decimales
+    total = Math.round((subtotal - descuento) * 100) / 100;
+    totalDiv.textContent = `Subtotal: $${subtotal.toFixed(2)} — Descuento 10%: -$${descuento.toFixed(2)} — Total: $${total.toFixed(2)}`;
+  } else {
+    totalDiv.textContent = `Total: $${subtotal.toFixed(2)}`;
+  }
 
   // botón comprar (asegúrate que tu carrito.html tenga id="btn-comprar")
   const btnComprar = document.getElementById("btn-comprar");
@@ -43,7 +59,7 @@ function cargarCarrito() {
       carrito.forEach(p => {
         mensaje += `- ${p.nombre} x${p.cantidad} ($${p.precio * p.cantidad})\n`;
       });
-      mensaje += `\nTotal: $${total}.00`;
+      mensaje += `\nTotal: $${total.toFixed(2)}`;
       window.open(`https://wa.me/593963210127?text=${encodeURIComponent(mensaje)}`, "_blank");
     };
   }
