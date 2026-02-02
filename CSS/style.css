@@ -524,6 +524,8 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Igual que catálogo */
   gap: 20px;
   padding: 20px;
+  justify-items: center; /* centrar tarjeta dentro de la celda cuando hay pocas columnas */
+  align-items: start;
 }
 
 /* Cada producto en el carrito */
@@ -534,6 +536,10 @@ footer {
   padding: 15px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 360px; /* limitar ancho de la tarjeta para evitar que se estire al 100% */
+  margin: 0 auto; /* centrar cuando la columna es muy ancha */
+  box-sizing: border-box;
 }
 
 .carrito-producto:hover {
