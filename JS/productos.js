@@ -122,7 +122,7 @@ const productos = {
     {
       nombre: "Envío Express",
       descripcion: "Entrega prioritaria el mismo día para zonas seleccionadas.",
-      img: "img/Servicios/Envio_Express.jpeg",
+      img: "img/Servicios/Envio_Express",
       esServicio: true,
       whatsapp: "593963210127"
     },
