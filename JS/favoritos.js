@@ -20,7 +20,14 @@ function cargarFavoritos() {
     const div = document.createElement('div');
     div.classList.add('producto');
     div.innerHTML = `
-      <img src="${producto.img}" alt="${producto.nombre}" loading="lazy">
+      <div class="media-container">
+        <img src="${producto.img}" alt="${producto.nombre}" loading="lazy" class="media">
+        <button class="btn-eliminar-icon" onclick="eliminarFavorito(${index})" aria-label="Eliminar favorito">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M9 3h6a1 1 0 0 1 1 1v1h3a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h3V4a1 1 0 0 1 1-1zm-4 6h14l-1 12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 9z"></path>
+          </svg>
+        </button>
+      </div>
       <h2>${producto.nombre}</h2>
       <p>$${producto.precio}.00</p>
 
@@ -28,10 +35,6 @@ function cargarFavoritos() {
         <button class="btn-restar" data-nombre="${producto.nombre}">➖</button>
         <span class="cantidad-display" data-nombre="${producto.nombre}">${cantidad}</span>
         <button class="btn-sumar" data-nombre="${producto.nombre}">➕</button>
-      </div>
-
-      <div class="fila-abajo">
-        <div class="btn-eliminar" onclick="eliminarFavorito(${index})">🗑 Eliminar</div>
       </div>
     `;
     contenedor.appendChild(div);
