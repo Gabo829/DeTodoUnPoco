@@ -42,9 +42,9 @@ function cargarCarrito() {
   if (totalItems >= 3) {
     descuento = Math.round(subtotal * 0.10 * 100) / 100; // redondeo a 2 decimales
     total = Math.round((subtotal - descuento) * 100) / 100;
-    totalDiv.textContent = `Subtotal: $${subtotal.toFixed(2)} — Descuento 10%: -$${descuento.toFixed(2)} — Total: $${total.toFixed(2)}`;
+    totalDiv.innerHTML = `Subtotal: <span class="monto-subtotal">$${subtotal.toFixed(2)}</span> | Descuento 10%: <span class="monto-descuento">-$${descuento.toFixed(2)}</span> | Total: <span class="monto-total">$${total.toFixed(2)}</span>`;
   } else {
-    totalDiv.textContent = `Total: $${subtotal.toFixed(2)}`;
+    totalDiv.innerHTML = `Total: <span class="monto-total">$${subtotal.toFixed(2)}</span>`;
   }
 
   // botón comprar (asegúrate que tu carrito.html tenga id="btn-comprar")

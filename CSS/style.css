@@ -576,6 +576,20 @@ footer {
   color: white;
 }
 
+/* Colores para montos en el carrito */
+.monto-subtotal {
+  color: #25d366; /* verde */
+  font-weight: 700;
+}
+.monto-descuento {
+  color: #ff4d4d; /* rojo */
+  font-weight: 700;
+}
+.monto-total {
+  color: #25d366; /* mismo verde que subtotal */
+  font-weight: 700;
+}
+
 /* Clase para aplicar el giro */
 .animate-slot-spin {
     animation: slot-spin 0.8s linear infinite;

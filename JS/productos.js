@@ -111,7 +111,7 @@ const productos = {
     { nombre: "Rifa 2 - Rolex para Hombre", precio: 2, img: "img/Relojes 1.1 para Hombre/Rolex_1.jpeg" },
     { nombre: "Rifa 3 - Coach Negra", precio: 2, img: "img/Carteras 1.1/Coach_Negro.jpeg" }
   ],
-    servicios: [
+  servicios: [
     {
       nombre: "Mantenimiento Técnico",
       descripcion: "Limpieza y optimización de dispositivos electrónicos y computadoras.",
@@ -122,7 +122,7 @@ const productos = {
     {
       nombre: "Envío Express",
       descripcion: "Entrega prioritaria el mismo día para zonas seleccionadas.",
-      img: "img/Servicios/Envio_Express",
+      img: "img/Servicios/Envio_Express.jpeg",
       esServicio: true,
       whatsapp: "593963210127"
     },
