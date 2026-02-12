@@ -683,3 +683,66 @@ footer {
   main, .contenedor-servicios { flex: 1 0 auto; }
   footer { margin-top: 0; }
 }
+
+/* --- Estilos del modal de pago --- */
+.payment-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+.payment-modal.open { display: flex; }
+.payment-modal-content {
+  background: #0f1720;
+  color: #e5e7eb;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 520px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  position: relative;
+  box-sizing: border-box;
+}
+.payment-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  color: #e5e7eb;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.payment-methods { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+.payment-methods label { cursor: pointer; background: #131418; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04); }
+.payment-form { margin-top: 10px; }
+.payment-form input[type="text"] { display: block; width: 100%; padding: 8px 10px; margin: 8px 0; border-radius: 8px; border: 1px solid #222; background: #0b0b0b; color: #e5e7eb; box-sizing: border-box; }
+.payment-form .row { display:flex; gap:8px; }
+.payment-form .row input { flex:1; }
+.payment-btn { background:#25d366; color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
+.payment-btn:hover { background:#1ebe5d; }
+.payment-result { margin-top:12px; font-weight:700; }
+
+/* Términos y condiciones dentro del modal */
+.terms-row { margin-top: 10px; }
+.terms-row label { color: #e5e7eb; font-size: 0.95rem; display: inline-flex; align-items: center; gap:8px; }
+.terms-row .terms-link { color: #ffd24d; text-decoration: underline; }
+.terms-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: #0d6efd; transform: translateY(1px); }
+.terms-row .required { color: #ff4d4d; font-weight:700; margin-left:4px; }
+
+/* Deshabilitar botones de pago hasta aceptar términos */
+.payment-btn[disabled], .payment-btn.disabled { opacity: 0.5; pointer-events: none; cursor: not-allowed; }
+
+/* Estilos específicos para la página de Términos y Condiciones */
+.terms-page h1 { color: #25d366; }
+.terms-page h2 {
+  color: #ffd24d; /* amarillo para títulos de secciones */
+  font-size: 1.25rem;
+  margin-top: 22px;
+}
+.terms-page p { color: #e5e7eb; line-height: 1.6; }

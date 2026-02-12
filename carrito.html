@@ -62,4 +62,46 @@
 
     <!-- Contenedor de productos -->
     <div id="lista-carrito"></div>
+    
+    <!-- Modal de pago -->
+    <div id="payment-modal" class="payment-modal" aria-hidden="true">
+      <div class="payment-modal-content" role="dialog" aria-modal="true" aria-labelledby="payment-title">
+        <button id="payment-close" class="payment-close" aria-label="Cerrar ventana">×</button>
+        <h2 id="payment-title">Selecciona método de pago</h2>
+
+        <div class="payment-methods">
+          <label><input type="radio" name="metodo-pago" value="card" checked> Tarjeta (débito / crédito)</label>
+          <label><input type="radio" name="metodo-pago" value="transfer"> Transferencia bancaria</label>
+        </div>
+
+        <div id="form-card" class="payment-form">
+          <p>Ingresa los datos de la tarjeta (simulado):</p>
+          <input type="text" id="card-name" placeholder="Nombre en la tarjeta">
+          <input type="text" id="card-number" placeholder="Número de tarjeta">
+          <div class="row">
+            <input type="text" id="card-exp" placeholder="MM/AA">
+            <input type="text" id="card-cvv" placeholder="CVV">
+          </div>
+          <button id="pay-card" class="payment-btn">Pagar <span id="pay-amount">$0.00</span></button>
+        </div>
+
+        <div id="form-transfer" class="payment-form" style="display:none">
+          <p>Por favor realiza la transferencia a:</p>
+          <p><strong>Banco:</strong> Banco Pichincha</p>
+          <p><strong>Cuenta:</strong> 1234567890</p>
+          <p><strong>Titular:</strong> Nombre</p>
+          <p><strong>------------------------------------------------------------</strong></p>
+          <p><strong>Banco:</strong> Banco Guayaquil</p>
+          <p><strong>Cuenta:</strong> 1234567890</p>
+          <p><strong>Titular:</strong> Nombre</p>
+          <button id="confirm-transfer" class="payment-btn">He realizado la transferencia</button>
+        </div>
+
+        <div class="terms-row">
+          <label><input type="checkbox" id="accept-terms"> He leído y estoy de acuerdo con los <a href="terminos.html" target="_blank" class="terms-link">términos y condiciones</a> de la web <span class="required">*</span></label>
+        </div>
+        <div id="payment-result" class="payment-result" aria-live="polite"></div>
+      </div>
+    </div>
   </body>
+    </html>

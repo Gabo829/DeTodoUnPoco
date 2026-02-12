@@ -55,17 +55,115 @@ function cargarCarrito() {
         alert("El carrito está vacío");
         return;
       }
-      let mensaje = "Hola! Quiero comprar:\n\n";
-      carrito.forEach(p => {
-        mensaje += `- ${p.nombre} x${p.cantidad} ($${p.precio * p.cantidad})\n`;
-      });
-      mensaje += `\nTotal: $${total.toFixed(2)}`;
-      window.open(`https://wa.me/593963210127?text=${encodeURIComponent(mensaje)}`, "_blank");
+      // exponer carrito y total para el modal
+      window.currentCart = carrito;
+      window.currentTotal = total;
+      openPaymentModal();
     };
   }
 
   // actualizar contador global
   if (typeof actualizarContadorCarrito === "function") actualizarContadorCarrito();
+}
+
+/* --- Funciones para el modal de pago (simulado) --- */
+function openPaymentModal() {
+  const modal = document.getElementById('payment-modal');
+  if (!modal) return;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  const amountSpan = document.getElementById('pay-amount');
+  if (amountSpan && typeof window.currentTotal === 'number') amountSpan.textContent = `$${window.currentTotal.toFixed(2)}`;
+  // Reset terms checkbox and disable pay buttons until accepted
+  const chk = document.getElementById('accept-terms');
+  if (chk) chk.checked = false;
+  setPaymentButtonsDisabled(true);
+}
+
+function closePaymentModal() {
+  const modal = document.getElementById('payment-modal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  const result = document.getElementById('payment-result'); if (result) result.textContent = '';
+}
+
+// manejadores iniciales para el modal (se ejecutan una vez)
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('payment-modal');
+  if (!modal) return;
+  // cerrar
+  document.getElementById('payment-close').addEventListener('click', closePaymentModal);
+  // checkbox términos
+  const chk = document.getElementById('accept-terms');
+  if (chk) {
+    // inicialmente deshabilitar botones
+    setPaymentButtonsDisabled(!chk.checked);
+    chk.addEventListener('change', (e) => {
+      setPaymentButtonsDisabled(!e.target.checked);
+    });
+  } else {
+    // si no existe la casilla, mantener deshabilitado por defecto
+    setPaymentButtonsDisabled(true);
+  }
+  // cambiar método
+  const radios = document.querySelectorAll('input[name="metodo-pago"]');
+  radios.forEach(r => r.addEventListener('change', () => {
+    const val = document.querySelector('input[name="metodo-pago"]:checked').value;
+    document.getElementById('form-card').style.display = val === 'card' ? 'block' : 'none';
+    document.getElementById('form-transfer').style.display = val === 'transfer' ? 'block' : 'none';
+  }));
+
+  // botones de pago
+  document.getElementById('pay-card').addEventListener('click', (e) => {
+    e.preventDefault();
+    processSimulatedPayment('card');
+  });
+  document.getElementById('confirm-transfer').addEventListener('click', (e) => {
+    e.preventDefault();
+    processSimulatedPayment('transfer');
+  });
+});
+
+/* No external payment SDKs integrated here. */
+
+function processSimulatedPayment(method) {
+  const result = document.getElementById('payment-result');
+  if (!result) return;
+  // validar aceptación de términos
+  const chk = document.getElementById('accept-terms');
+  if (chk && !chk.checked) {
+    result.textContent = 'Debes aceptar los términos y condiciones antes de pagar.';
+    return;
+  }
+  const total = (typeof window.currentTotal === 'number') ? window.currentTotal : 0;
+  result.textContent = 'Procesando pago...';
+  // flujo simulado: no hay integración externa aquí
+  // simular respuesta asincrónica
+  setTimeout(() => {
+    if (method === 'transfer') {
+      result.textContent = `Se registró la indicación de transferencia. Total: $${total.toFixed(2)}. Gracias.`;
+    } else {
+      result.textContent = `Pago con tarjeta realizado: $${total.toFixed(2)}. Gracias.`;
+    }
+    // limpiar carrito local (simulación de compra completada)
+    localStorage.removeItem('carrito');
+    // actualizar vista y contador
+    if (typeof cargarCarrito === 'function') cargarCarrito();
+    if (typeof actualizarContadorCarrito === 'function') actualizarContadorCarrito();
+    // cerrar modal después de breve delay
+    setTimeout(() => closePaymentModal(), 1200);
+  }, 1000);
+}
+
+function setPaymentButtonsDisabled(isDisabled) {
+  const ids = ['pay-card', 'confirm-transfer'];
+  ids.forEach(id => {
+    const b = document.getElementById(id);
+    if (!b) return;
+    b.disabled = isDisabled;
+    if (isDisabled) b.classList.add('disabled'); else b.classList.remove('disabled');
+  });
 }
 
 /* Cambiar cantidad por índice en el carrito (vista carrito) */
