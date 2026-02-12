@@ -125,8 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* No external payment SDKs integrated here. */
-
 function processSimulatedPayment(method) {
   const result = document.getElementById('payment-result');
   if (!result) return;

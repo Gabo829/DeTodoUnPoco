@@ -730,10 +730,11 @@ footer {
 
 /* Términos y condiciones dentro del modal */
 .terms-row { margin-top: 10px; }
-.terms-row label { color: #e5e7eb; font-size: 0.95rem; display: inline-flex; align-items: center; gap:8px; }
-.terms-row .terms-link { color: #ffd24d; text-decoration: underline; }
-.terms-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: #0d6efd; transform: translateY(1px); }
-.terms-row .required { color: #ff4d4d; font-weight:700; margin-left:4px; }
+.terms-row label { color: #e5e7eb; font-size: 0.95rem; display: flex; align-items: flex-start; gap:8px; width:100%; justify-content: flex-start; text-align: left; flex-wrap: nowrap; }
+.terms-row .terms-link { color: #ffd24d; text-decoration: underline; margin: 0 6px; }
+.terms-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: #0d6efd; margin-top: 6px; flex: 0 0 auto; }
+.terms-row .terms-main { display: block; flex: 1 1 auto; }
+.terms-row .required { color: #ff4d4d; font-weight:700; margin-left:6px; }
 
 /* Deshabilitar botones de pago hasta aceptar términos */
 .payment-btn[disabled], .payment-btn.disabled { opacity: 0.5; pointer-events: none; cursor: not-allowed; }
