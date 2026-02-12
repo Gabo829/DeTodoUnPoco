@@ -140,7 +140,15 @@ function processSimulatedPayment(method) {
   // simular respuesta asincrónica
   setTimeout(() => {
     if (method === 'transfer') {
-      result.textContent = `Se registró la indicación de transferencia. Total: $${total.toFixed(2)}. Gracias.`;
+        // preparar mensaje con los artículos del carrito y abrir WhatsApp
+        const carrito = window.currentCart || JSON.parse(localStorage.getItem('carrito')) || [];
+        let mensaje = "Hola, he realizado la transferencia.\n\nPedido:\n";
+        carrito.forEach(p => {
+          mensaje += `- ${p.nombre} x${p.cantidad} ($${(p.precio * p.cantidad).toFixed(2)})\n`;
+        });
+        mensaje += `\nTotal: $${total.toFixed(2)}\n\nPor favor confirmar. Gracias.`;
+        const telefono = '593963210127';
+        window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
     } else {
       result.textContent = `Pago con tarjeta realizado: $${total.toFixed(2)}. Gracias.`;
     }
