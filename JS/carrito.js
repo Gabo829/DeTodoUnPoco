@@ -73,7 +73,12 @@ function openPaymentModal() {
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   const amountSpan = document.getElementById('pay-amount');
-  if (amountSpan && typeof window.currentTotal === 'number') amountSpan.textContent = `$${window.currentTotal.toFixed(2)}`;
+  if (amountSpan && typeof window.currentTotal === 'number') {
+    const fee = Math.round(window.currentTotal * 0.05 * 100) / 100; // 5%
+    const totalWithFee = Math.round((window.currentTotal + fee) * 100) / 100;
+    window.currentTotalWithFee = totalWithFee;
+    amountSpan.textContent = `$${totalWithFee.toFixed(2)}`;
+  }
   // Reset terms checkbox and disable pay buttons until accepted
   const chk = document.getElementById('accept-terms');
   if (chk) chk.checked = false;
@@ -110,8 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const radios = document.querySelectorAll('input[name="metodo-pago"]');
   radios.forEach(r => r.addEventListener('change', () => {
     const val = document.querySelector('input[name="metodo-pago"]:checked').value;
-    document.getElementById('form-card').style.display = val === 'card' ? 'block' : 'none';
-    document.getElementById('form-transfer').style.display = val === 'transfer' ? 'block' : 'none';
+    const formCard = document.getElementById('form-card');
+    const formTransfer = document.getElementById('form-transfer');
+    if (formCard) formCard.style.display = (val === 'card') ? 'block' : 'none';
+    if (formTransfer) formTransfer.style.display = (val === 'transfer') ? 'block' : 'none';
   }));
 
   // botones de pago
@@ -135,31 +142,40 @@ function processSimulatedPayment(method) {
     return;
   }
   const total = (typeof window.currentTotal === 'number') ? window.currentTotal : 0;
-  result.textContent = 'Procesando pago...';
-  // flujo simulado: no hay integración externa aquí
-  // simular respuesta asincrónica
-  setTimeout(() => {
-    if (method === 'transfer') {
-        // preparar mensaje con los artículos del carrito y abrir WhatsApp
-        const carrito = window.currentCart || JSON.parse(localStorage.getItem('carrito')) || [];
-        let mensaje = "Hola, he realizado la transferencia.\n\nPedido:\n";
-        carrito.forEach(p => {
-          mensaje += `- ${p.nombre} x${p.cantidad} ($${(p.precio * p.cantidad).toFixed(2)})\n`;
-        });
-        mensaje += `\nTotal: $${total.toFixed(2)}\n\nPor favor confirmar. Gracias.`;
-        const telefono = '593963210127';
-        window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
-    } else {
-      result.textContent = `Pago con tarjeta realizado: $${total.toFixed(2)}. Gracias.`;
-    }
-    // limpiar carrito local (simulación de compra completada)
-    localStorage.removeItem('carrito');
-    // actualizar vista y contador
-    if (typeof cargarCarrito === 'function') cargarCarrito();
-    if (typeof actualizarContadorCarrito === 'function') actualizarContadorCarrito();
-    // cerrar modal después de breve delay
+  // flujo para cada método
+  if (method === 'transfer') {
+    result.textContent = 'Preparando mensaje para transferencia...';
+    setTimeout(() => {
+      const carrito = window.currentCart || JSON.parse(localStorage.getItem('carrito')) || [];
+      let mensaje = "Hola, he realizado la transferencia.\n\nPedido:\n";
+      carrito.forEach(p => {
+        mensaje += `- ${p.nombre} x${p.cantidad} ($${(p.precio * p.cantidad).toFixed(2)})\n`;
+      });
+      mensaje += `\nTotal: $${total.toFixed(2)}\n\nPor favor confirmar. Gracias.`;
+      const telefono = '593963210127';
+      window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
+      // limpiar carrito local (simulación de compra completada)
+      localStorage.removeItem('carrito');
+      if (typeof cargarCarrito === 'function') cargarCarrito();
+      if (typeof actualizarContadorCarrito === 'function') actualizarContadorCarrito();
+      setTimeout(() => closePaymentModal(), 1200);
+    }, 500);
+  } else if (method === 'card') {
+    // abrir el link de PayPhone proporcionado por el usuario y pasar el monto total +5%
+    const payphoneUrl = 'https://ppls.me/RYvQLg6Cr5ylI2EDUvsMQ';
+    const totalWithFee = (typeof window.currentTotalWithFee === 'number')
+      ? window.currentTotalWithFee
+      : Math.round(((typeof window.currentTotal === 'number' ? window.currentTotal : total) * 1.05) * 100) / 100;
+    result.textContent = `Abriendo PayPhone ($${totalWithFee.toFixed(2)}) para completar el pago...`;
+    // construir URL con parámetro amount y nota informativa (si el destino lo soporta)
+    const separator = payphoneUrl.includes('?') ? '&' : '?';
+    const urlWithAmount = `${payphoneUrl}${separator}amount=${encodeURIComponent(totalWithFee.toFixed(2))}&note=${encodeURIComponent('Total con 5%: $' + totalWithFee.toFixed(2))}`;
+    window.open(urlWithAmount, '_blank');
     setTimeout(() => closePaymentModal(), 1200);
-  }, 1000);
+  } else {
+    result.textContent = `Pago procesado: $${total.toFixed(2)}.`;
+    setTimeout(() => closePaymentModal(), 1200);
+  }
 }
 
 function setPaymentButtonsDisabled(isDisabled) {

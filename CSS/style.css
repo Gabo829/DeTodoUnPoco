@@ -239,6 +239,35 @@ footer {
   transition: transform 0.5s ease;
 }
 
+/* Animación imagen volando al carrito */
+.fly-image {
+  pointer-events: none;
+  border-radius: 8px;
+  will-change: transform, opacity;
+}
+
+/* Rebote en el ícono del carrito */
+.nav-carrito-link.cart-bounce {
+  animation: cartBounce 300ms ease;
+}
+
+@keyframes cartBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px) scale(1.05); }
+  100% { transform: translateY(0); }
+}
+
+/* Preferencias de reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .fly-image { display: none !important; }
+  .nav-carrito-link.cart-bounce { animation: none !important; transform: none !important; }
+}
+
+/* Ajustes específicos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .producto img { max-width: 180px; }
+}
+
 .servicio-info {
   text-align: center;
   flex-grow: 1;

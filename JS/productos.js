@@ -222,9 +222,9 @@ function generarProductos(categoria, filtro = "") {
 
           div.innerHTML = `
             <div class="media-container">
-              <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media">
-              <button type="button" class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
-            </div>
+                <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media" data-nombre="${p.nombre}">
+                <button type="button" class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
+              </div>
             <h2>${p.nombre}</h2>
             ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
             <div class="acciones">
@@ -241,6 +241,63 @@ function generarProductos(categoria, filtro = "") {
   asignarEventosFavoritos();
   asignarEventosAcciones();
   actualizarContadorCarrito();
+}
+
+/* ---------------------------
+   Animación añadir al carrito
+   --------------------------- */
+function animateAddToCart(nombre) {
+  try {
+     // Respeta la preferencia de reducir movimiento
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const img = document.querySelector(`img.media[data-nombre="${CSS.escape(nombre)}"]`);
+    const cart = document.querySelector('.nav-carrito-link');
+    if (!img || !cart) return;
+
+    if (reduce) {
+      // Animación reducida: solo rebote en el ícono
+      cart.classList.add('cart-bounce');
+      setTimeout(() => cart.classList.remove('cart-bounce'), 300);
+      return;
+    }
+
+    const imgRect = img.getBoundingClientRect();
+    const cartRect = cart.getBoundingClientRect();
+
+    const clone = img.cloneNode(true);
+    clone.style.position = 'fixed';
+    clone.style.left = `${imgRect.left}px`;
+    clone.style.top = `${imgRect.top}px`;
+    clone.style.width = `${imgRect.width}px`;
+    clone.style.height = `${imgRect.height}px`;
+    clone.style.zIndex = 9999;
+    clone.classList.add('fly-image');
+    document.body.appendChild(clone);
+
+    // ajustar duración y escala según ancho de pantalla
+    const isSmall = window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
+    const duration = isSmall ? 450 : 700; // ms
+    const scale = isSmall ? 0.16 : 0.2;
+    clone.style.transition = `transform ${duration}ms cubic-bezier(0.2,0.8,0.2,1), opacity ${duration}ms`;
+
+    const deltaX = cartRect.left + (cartRect.width/2) - (imgRect.left + (imgRect.width/2));
+    const deltaY = cartRect.top + (cartRect.height/2) - (imgRect.top + (imgRect.height/2));
+
+    requestAnimationFrame(() => {
+      clone.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scale})`;
+      clone.style.opacity = '0.6';
+    });
+
+    clone.addEventListener('transitionend', () => {
+      clone.remove();
+      // pequeño rebote en el ícono del carrito
+      cart.classList.add('cart-bounce');
+      setTimeout(() => cart.classList.remove('cart-bounce'), 300);
+    }, { once: true });
+  } catch (e) {
+    // si falla, no interrumpir la experiencia
+    console.warn('animateAddToCart error', e);
+  }
 }
 
 /* ---------------------------
@@ -319,6 +376,9 @@ function cambiarCantidadPorNombre(nombre, delta) {
 
   localStorage.setItem('carrito', JSON.stringify(carrito));
   actualizarContadorCarrito();
+
+  // animación solo cuando se agrega (delta > 0)
+  if (delta > 0) animateAddToCart(nombre);
 
   const displays = document.querySelectorAll(`.cantidad-display[data-nombre="${nombre}"]`);
   displays.forEach(display => {
