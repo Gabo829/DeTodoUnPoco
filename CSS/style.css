@@ -264,8 +264,11 @@ footer {
 }
 
 /* Ajustes específicos para pantallas pequeñas */
+/* Nota: no limitar la imagen globalmente aquí para evitar efectos inesperados en móviles */
 @media (max-width: 600px) {
-  .producto img { max-width: 180px; }
+  /* permitir que el contenedor ocupe el ancho disponible y la imagen se ajuste */
+  .producto .media-container { max-width: 100%; }
+  .producto img { max-width: 100%; height: auto; }
 }
 
 .servicio-info {
