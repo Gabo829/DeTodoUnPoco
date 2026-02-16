@@ -130,6 +130,11 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     processSimulatedPayment('transfer');
   });
+  const sendProofBtn = document.getElementById('send-proof');
+  if (sendProofBtn) sendProofBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    sendProofWhatsApp();
+  });
 });
 
 function processSimulatedPayment(method) {
@@ -147,11 +152,15 @@ function processSimulatedPayment(method) {
     result.textContent = 'Preparando mensaje para transferencia...';
     setTimeout(() => {
       const carrito = window.currentCart || JSON.parse(localStorage.getItem('carrito')) || [];
-      let mensaje = "Hola, he realizado la transferencia.\n\nPedido:\n";
+      // generar o reutilizar ID de pedido
+      if (!window.currentOrderId) {
+        window.currentOrderId = 'PED-' + Date.now().toString(36) + '-' + Math.floor(Math.random() * 9000 + 1000);
+      }
+      let mensaje = `Hola, he realizado la transferencia.\n\nPedido ID: ${window.currentOrderId}\n\nDetalle:\n`;
       carrito.forEach(p => {
         mensaje += `- ${p.nombre} x${p.cantidad} ($${(p.precio * p.cantidad).toFixed(2)})\n`;
       });
-      mensaje += `\nTotal: $${total.toFixed(2)}\n\nPor favor confirmar. Gracias.`;
+      mensaje += `\nTotal: $${total.toFixed(2)}\n\nAdjunto comprobante, por favor confirmar. Gracias.`;
       const telefono = '593963210127';
       window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
       // limpiar carrito local (simulación de compra completada)
@@ -179,13 +188,42 @@ function processSimulatedPayment(method) {
 }
 
 function setPaymentButtonsDisabled(isDisabled) {
-  const ids = ['pay-card', 'confirm-transfer'];
+  const ids = ['pay-card', 'confirm-transfer', 'send-proof'];
   ids.forEach(id => {
     const b = document.getElementById(id);
     if (!b) return;
     b.disabled = isDisabled;
     if (isDisabled) b.classList.add('disabled'); else b.classList.remove('disabled');
   });
+}
+
+function sendProofWhatsApp() {
+  const result = document.getElementById('payment-result');
+  if (!result) return;
+  // validar aceptación de términos
+  const chk = document.getElementById('accept-terms');
+  if (chk && !chk.checked) {
+    result.textContent = 'Debes aceptar los términos y condiciones antes de enviar el comprobante.';
+    return;
+  }
+
+  const carrito = window.currentCart || JSON.parse(localStorage.getItem('carrito')) || [];
+  const total = (typeof window.currentTotal === 'number') ? window.currentTotal : 0;
+  result.textContent = 'Preparando mensaje para enviar comprobante...';
+  setTimeout(() => {
+    // generar o reutilizar ID de pedido
+    if (!window.currentOrderId) {
+      window.currentOrderId = 'PED-' + Date.now().toString(36) + '-' + Math.floor(Math.random() * 9000 + 1000);
+    }
+    let mensaje = `Hola, adjunto comprobante de pago.\n\nPedido ID: ${window.currentOrderId}\n\nDetalle:\n`;
+    carrito.forEach(p => {
+      mensaje += `- ${p.nombre} x${p.cantidad} ($${(p.precio * p.cantidad).toFixed(2)})\n`;
+    });
+    mensaje += `\nTotal: $${total.toFixed(2)}\n\nPor favor confirmar. Gracias.`;
+    const telefono = '593963210127';
+    window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
+    setTimeout(() => closePaymentModal(), 800);
+  }, 300);
 }
 
 /* Cambiar cantidad por índice en el carrito (vista carrito) */

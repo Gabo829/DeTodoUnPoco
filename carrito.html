@@ -49,8 +49,7 @@
 
     <header>
       <h1 class="titulo-principal">Carrito de Compras</h1>
-      <h2 class="subtitulo">Por la compra de 3 productos o mas se te hara un descuento del 10%!!
-        Paga $5 por la compra de 3 boletos!!
+      <h2 class="subtitulo">Por la compra de 3 productos o más se te hará un descuento del 10%!!
       </h2>
     </header>
 
@@ -76,7 +75,10 @@
 
         <div id="form-card" class="payment-form">
           <p>Al elegir tarjeta serás redirigido al sitio de pago seguro (PayPhone) para completar la transacción. Se aplica un 5% de comisión adicional. NO olvidar de pasar comprobante.</p>
-          <button id="pay-card" class="payment-btn">Pagar con tarjeta <span id="pay-amount">$0.00</span></button>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <button id="pay-card" class="payment-btn">Pagar <span id="pay-amount">$0.00</span></button>
+            <button id="send-proof" class="payment-btn secondary">Mandar comprobante</button>
+          </div>
         </div>
 
         <div id="form-transfer" class="payment-form" style="display:none">
