@@ -115,7 +115,11 @@ const productos = {
     {
       nombre: "Mantenimiento Técnico",
       descripcion: "Limpieza y optimización de dispositivos electrónicos y computadoras.",
-      img: "img/Servicios/Mantenimiento_Tecnico.jpeg",
+      img: "img/Servicios/Mantenimiento_Tecnico_O1.jpeg",
+        images: [
+        "img/Servicios/Mantenimiento_Tecnico_O1.jpeg",
+        "img/Servicios/Mantenimiento_Tecnico_O2.jpg"
+      ],
       esServicio: true,
       whatsapp: "593992816761"
     },
@@ -191,9 +195,16 @@ function generarProductos(categoria, filtro = "") {
       // Si es un servicio, mostramos diseño especial
       if (p.esServicio) {
         div.classList.add("card-servicio");
+        // carousel markup: arrows hidden by default (CSS will show on hover)
+        const firstImg = (p.images && p.images.length) ? p.images[0] : p.img;
+        const dataImages = p.images && p.images.length ? JSON.stringify(p.images) : JSON.stringify([p.img]);
         div.innerHTML = `
           <div class="media-container">
-            <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media">
+            <div class="carousel" data-images='${dataImages}' tabindex="0">
+              <button class="carousel-arrow left" aria-label="Anterior">‹</button>
+              <img src="${firstImg}" alt="${p.nombre}" loading="lazy" class="media carousel-img">
+              <button class="carousel-arrow right" aria-label="Siguiente">›</button>
+            </div>
           </div>
           <h2>${p.nombre}</h2>
           <p style="color:#ccc; font-size:0.9rem; padding:0 10px;">${p.descripcion}</p>
@@ -220,22 +231,49 @@ function generarProductos(categoria, filtro = "") {
           const productoEnCarrito = carrito.find(item => item.nombre === p.nombre);
           const cantidad = productoEnCarrito ? productoEnCarrito.cantidad : 0;
 
-          div.innerHTML = `
-            <div class="media-container">
-                <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media" data-nombre="${p.nombre}">
+          // Si el producto tiene varias imágenes, renderizamos un carrusel igual que en servicios
+          if (p.images && p.images.length) {
+            const firstImg = p.images[0];
+            const dataImages = JSON.stringify(p.images);
+            div.innerHTML = `
+              <div class="media-container">
+                <div class="carousel" data-images='${dataImages}' tabindex="0">
+                  <button class="carousel-arrow left" aria-label="Anterior">‹</button>
+                  <img src="${firstImg}" alt="${p.nombre}" loading="lazy" class="media carousel-img" data-nombre="${p.nombre}">
+                  <button class="carousel-arrow right" aria-label="Siguiente">›</button>
+                </div>
                 <button type="button" class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
               </div>
-            <h2>${p.nombre}</h2>
-            ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
-            <div class="acciones">
-              <button type="button" class="btn-restar" data-nombre="${p.nombre}">➖</button>
-              <span class="cantidad-display" data-nombre="${p.nombre}">${cantidad}</span>
-              <button type="button" class="btn-sumar" data-nombre="${p.nombre}">➕</button>
-            </div>
-          `;
+              <h2>${p.nombre}</h2>
+              ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
+              <div class="acciones">
+                <button type="button" class="btn-restar" data-nombre="${p.nombre}">➖</button>
+                <span class="cantidad-display" data-nombre="${p.nombre}">${cantidad}</span>
+                <button type="button" class="btn-sumar" data-nombre="${p.nombre}">➕</button>
+              </div>
+            `;
+          } else {
+            // Producto con imagen única
+            div.innerHTML = `
+              <div class="media-container">
+                  <img src="${p.img}" alt="${p.nombre}" loading="lazy" class="media" data-nombre="${p.nombre}">
+                  <button type="button" class="btn-favorito" data-nombre="${p.nombre}">${esFavorito}</button>
+                </div>
+              <h2>${p.nombre}</h2>
+              ${p.precio > 0 ? `<p>$${p.precio}.00</p>` : ""}
+              <div class="acciones">
+                <button type="button" class="btn-restar" data-nombre="${p.nombre}">➖</button>
+                <span class="cantidad-display" data-nombre="${p.nombre}">${cantidad}</span>
+                <button type="button" class="btn-sumar" data-nombre="${p.nombre}">➕</button>
+              </div>
+            `;
+          }
         }
       }
       catalogo.appendChild(div);
+          // inicializar carrusel si existe
+          const carousel = div.querySelector('.carousel');
+          if (carousel) initCarousel(carousel);
     });
 
   asignarEventosFavoritos();
@@ -356,6 +394,48 @@ function buscarProductos(categoria) {
   input.addEventListener("input", () => {
     generarProductos(categoria, input.value);
   });
+}
+
+/* ---------------------------
+   Inicializar carrusel simple
+   --------------------------- */
+function initCarousel(root) {
+  try {
+    const images = JSON.parse(root.getAttribute('data-images') || '[]');
+    if (!images || !images.length) return;
+    const imgEl = root.querySelector('.carousel-img');
+    const btnPrev = root.querySelector('.carousel-arrow.left');
+    const btnNext = root.querySelector('.carousel-arrow.right');
+    root._ci = 0; // index
+
+    function showIndex(i) {
+      root._ci = (i + images.length) % images.length;
+      if (imgEl) imgEl.src = images[root._ci];
+    }
+
+    if (btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); showIndex(root._ci - 1); });
+    if (btnNext) btnNext.addEventListener('click', (e) => { e.stopPropagation(); showIndex(root._ci + 1); });
+
+    // keyboard support when focused
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { showIndex(root._ci - 1); }
+      if (e.key === 'ArrowRight') { showIndex(root._ci + 1); }
+    });
+
+    // swipe support (basic)
+    let touchStartX = null;
+    root.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', (e) => {
+      if (touchStartX == null) return;
+      const dx = (e.changedTouches[0].clientX - touchStartX);
+      if (Math.abs(dx) > 40) {
+        if (dx < 0) showIndex(root._ci + 1); else showIndex(root._ci - 1);
+      }
+      touchStartX = null;
+    });
+  } catch (err) {
+    console.warn('initCarousel error', err);
+  }
 }
 
 /* ---------------------------

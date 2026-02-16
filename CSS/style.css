@@ -339,6 +339,35 @@ footer {
   border-radius: 10px;
 }
 
+/* Carrusel flechas: ocultas por defecto, aparecen al pasar por encima del contenedor */
+.carousel { position: relative; display: block; width: 100%; height: 100%; }
+.carousel .carousel-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel .carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 180ms ease, background 160ms;
+  cursor: pointer;
+  z-index: 5;
+}
+.carousel .carousel-arrow.left { left: 10px; }
+.carousel .carousel-arrow.right { right: 10px; }
+.media-container:hover .carousel .carousel-arrow { opacity: 1; }
+
+/* On touch devices we still want arrows visible when user taps the carousel (focus) */
+.carousel:focus .carousel-arrow { opacity: 1; outline: none; }
+
 /* Asegurar que los videos dentro del contenedor respeten el tamaño y se centren */
 .media-container video.media {
   display: block;
