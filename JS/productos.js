@@ -130,6 +130,13 @@ const productos = {
       esServicio: true,
       whatsapp: "593963210127"
     },
+    {
+      nombre: "Desarrollador Web",
+      descripcion: "Creación y mantenimiento de sitios web personalizados.",
+      img: "img/Servicios/Desarrollador_Web.jpeg",
+      esServicio: true,
+      whatsapp: "593963210127"
+    },
   ]
 };
 
@@ -413,26 +420,32 @@ function initCarousel(root) {
       if (imgEl) imgEl.src = images[root._ci];
     }
 
-    if (btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); showIndex(root._ci - 1); });
-    if (btnNext) btnNext.addEventListener('click', (e) => { e.stopPropagation(); showIndex(root._ci + 1); });
+    // Ocultar flechas si sólo hay una imagen
+    if (images.length <= 1) {
+      if (btnPrev) btnPrev.style.display = 'none';
+      if (btnNext) btnNext.style.display = 'none';
+    } else {
+      if (btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); showIndex(root._ci - 1); });
+      if (btnNext) btnNext.addEventListener('click', (e) => { e.stopPropagation(); showIndex(root._ci + 1); });
 
-    // keyboard support when focused
-    root.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') { showIndex(root._ci - 1); }
-      if (e.key === 'ArrowRight') { showIndex(root._ci + 1); }
-    });
+      // keyboard support cuando está enfocado
+      root.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { showIndex(root._ci - 1); }
+        if (e.key === 'ArrowRight') { showIndex(root._ci + 1); }
+      });
 
-    // swipe support (basic)
-    let touchStartX = null;
-    root.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    root.addEventListener('touchend', (e) => {
-      if (touchStartX == null) return;
-      const dx = (e.changedTouches[0].clientX - touchStartX);
-      if (Math.abs(dx) > 40) {
-        if (dx < 0) showIndex(root._ci + 1); else showIndex(root._ci - 1);
-      }
-      touchStartX = null;
-    });
+      // swipe support (básico)
+      let touchStartX = null;
+      root.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      root.addEventListener('touchend', (e) => {
+        if (touchStartX == null) return;
+        const dx = (e.changedTouches[0].clientX - touchStartX);
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) showIndex(root._ci + 1); else showIndex(root._ci - 1);
+        }
+        touchStartX = null;
+      });
+    }
   } catch (err) {
     console.warn('initCarousel error', err);
   }
