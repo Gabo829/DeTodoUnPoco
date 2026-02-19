@@ -429,8 +429,8 @@ footer {
   right: 20px;
   background: #25d366;
   color: white;
-  font-size: 24px;
-  padding: 12px 16px;
+  font-size: 22px;
+  padding: 12px 14px;
   border-radius: 50%;
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -441,6 +441,15 @@ footer {
 .btn-wsp-flotante:hover {
   transform: scale(1.1);
   background: #1ebe5d;
+}
+
+/* Icono dentro del botón flotante: controlar tamaño/color desde CSS */
+.btn-wsp-flotante .wsp-icon {
+  width: 26px; /* tamaño reducido */
+  height: 26px;
+  display: block;
+  pointer-events: none; /* evitar que el SVG capture clicks */
+  fill: currentColor; /* permitir cambiar color vía color: en .btn-wsp-flotante */
 }
 
 /* Estilos para el enlace del carrito en la navbar */
