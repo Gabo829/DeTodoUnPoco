@@ -2,6 +2,9 @@ html {
   box-sizing: border-box;
   width: 100%;
   overflow-x: hidden;
+  /* Tipografía base responsive: mínimo 14px, se adapta y máximo 18px */
+  font-size: clamp(14px, 1.2vw, 18px);
+  -webkit-text-size-adjust: 100%;
 }
 body {
   font-family: 'Inter', sans-serif;
@@ -32,7 +35,7 @@ footer {
   text-align: center;
   padding: 10px;
   margin-top: 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 /* --- NAVBAR Y NAVEGACIÓN --- */
@@ -43,7 +46,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px; /* reducido para apretar palabras */
+  gap: 4px; /* más pegado entre enlaces */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -53,18 +56,17 @@ footer {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px 10px; /* reducido para apretar palabras */
-  transition: all 0.3s ease;
+  padding: 6px 8px; /* padding más pequeño para apretar palabras */
+  transition: all 0.22s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   border-radius: 8px;
 }
-
 
 .navbar a:hover, .dropbtn:hover {
   color: #25d366;
@@ -142,7 +144,7 @@ footer {
 /* Título principal con fondo verde degradado */
 .titulo-principal {
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
   color: white;
   background: linear-gradient(90deg, #1f1f1f, #218838);
   padding: 15px;
@@ -797,6 +799,42 @@ footer {
 .payment-btn { background:#25d366; color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
 .payment-btn:hover { background:#1ebe5d; }
 .payment-result { margin-top:12px; font-weight:700; }
+
+/* Reducir tamaños en pantallas de escritorio grandes para mejor proporción */
+@media (min-width: 1100px) {
+  /* Títulos */
+  .titulo-principal {
+    font-size: 1.6rem; /* menos grande en desktop */
+    padding: 12px 14px;
+  }
+
+  .subtitulo {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  /* Productos: títulos y precios un poco más compactos */
+  .producto h2 {
+    font-size: 0.95rem;
+  }
+  .producto p {
+    font-size: 0.9rem;
+  }
+
+  /* Botones principales más pequeños pero clicables */
+  .btn-wsp, .btn-carrito, .btn-eliminar {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .btn-wsp-flotante {
+    font-size: 20px;
+    padding: 10px 12px;
+  }
+
+  /* Cabecera del carrito */
+  .carrito-header { font-size: 0.95rem; }
+}
 
 /* Términos y condiciones dentro del modal */
 .terms-row { margin-top: 10px; }

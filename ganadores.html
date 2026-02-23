@@ -21,7 +21,8 @@
         <!-- Carga de Lucide Icons (Solo SVG, no es una librería React) -->
         <script src="https://unpkg.com/lucide@latest"></script>
     
-        <!-- Enlace a estilos personalizados (CSS) -->
+        <!-- Fuentes y estilos -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="CSS/style.css">
     </head>
     <body class="bg-[#0a0a0a] text-gray-100 min-h-screen">
@@ -31,36 +32,30 @@
             <a href="favoritos.html">Favoritos</a>
             <a href="ganadores.html">Ganadores</a>
             <!-- Nuevo Menú Desplegable "Más" -->
-        <div class="dropdown" id="navDropdown">
-      <button class="dropbtn" id="btnMas">
-            Más <span class="arrow-icon"></span>
-      </button>
+            <div class="dropdown" id="navDropdown">
+                <button class="dropbtn" id="btnMas">
+                    Más <span class="arrow-icon"></span>
+                </button>
 
-      <div class="dropdown-content" id="menuMas">
-        <a href="servicios.html">Servicios</a>
-        <a href="rifas.html">Rifas</a>
-      </div>
-    </div>
+                <div class="dropdown-content" id="menuMas">
+                    <a href="servicios.html">Servicios</a>
+                    <a href="rifas.html">Rifas</a>
+                </div>
+            </div>
         
-             <a href="carrito.html" class="nav-carrito-link">
-                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                     <circle cx="9" cy="20" r="1"></circle>
-                     <circle cx="20" cy="20" r="1"></circle>
-                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                 </svg>
-                 <span id="contador-carrito"></span>
-             </a>
-    </nav>
+            <a href="carrito.html" class="nav-carrito-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="9" cy="20" r="1"></circle>
+                    <circle cx="20" cy="20" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span id="contador-carrito"></span>
+            </a>
+        </nav>
 
-        <div id="winners-root" class="container mx-auto px-4 py-16">
-        
+        <div id="winners-root" class="container mx-auto px-4 py-8">
             <!-- Contenido generado por JavaScript -->
-
         </div>
-
-        <!-- Fuentes y estilos -->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="CSS/style.css">
 
         <!-- Scripts -->
         <script src="JS/productos.js" defer></script>
@@ -72,3 +67,4 @@
             <p>© 2025 DeTodoUnPoco - Todos los derechos reservados</p>
         </footer>
     </body>
+</html>
