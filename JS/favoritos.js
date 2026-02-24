@@ -1,4 +1,9 @@
-/* favoritos.js: lista de favoritos con botones ➖ / ➕ sincronizados */
+/* =====================================================
+  favoritos.js
+  - Renderiza la lista de favoritos y sincroniza con el carrito
+  ===================================================== */
+
+/* Cargar y mostrar favoritos */
 function cargarFavoritos() {
   const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
   const carrito = JSON.parse(localStorage.getItem('carrito')) || [];

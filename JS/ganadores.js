@@ -1,4 +1,8 @@
-// --- Datos de los Ganadores  ---
+/* =====================================================
+    ganadores.js
+    - Renderizado de la sección de ganadores y componentes animados
+    ===================================================== */
+// Datos de los Ganadores
 const winnersData = [
     {
         id: 1,
@@ -46,7 +50,10 @@ const createElement = (tag, classes = [], content = '') => {
     return element;
 };
 
-// --- Componente: Dígito Giratorio (SpinningDigit) ---
+/* =====================================================
+    Componente: Dígito Giratorio (SpinningDigit)
+    - Crea la tira animada de números para el ticket
+    ===================================================== */
 const createSpinningDigit = (targetDigit, isSpinning) => {
     
     // Usamos clases h-20 y w-14 directamente de Tailwind

@@ -1,4 +1,9 @@
-/* carrito.js: vista del carrito con botones ➖ / ➕ y compra por WhatsApp */
+/* =====================================================
+  carrito.js
+  - Gestión de la vista del carrito, cálculo de totales y modal de pago
+  ===================================================== */
+
+/* Cargar y renderizar el carrito en la página */
 function cargarCarrito() {
   const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   const contenedor = document.getElementById('lista-carrito');
@@ -66,7 +71,10 @@ function cargarCarrito() {
   if (typeof actualizarContadorCarrito === "function") actualizarContadorCarrito();
 }
 
-/* --- Funciones para el modal de pago (simulado) --- */
+/* =====================================================
+  Modal de pago (simulado)
+  - Abrir/cerrar modal y preparar montos
+  ===================================================== */
 function openPaymentModal() {
   const modal = document.getElementById('payment-modal');
   if (!modal) return;

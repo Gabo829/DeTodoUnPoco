@@ -1,3 +1,9 @@
+/* =====================================================
+  productos.js
+  - Definición de catálogo, generación de tarjetas y utilidades
+  - Secciones: datos, generación UI, eventos, animaciones
+  ===================================================== */
+
 const productos = {
   perfumes: [
     { nombre: "Invictus Victory", precio: 30, img: "img/Perfumes 1.1 para Hombre/Invictus.jpeg" },
@@ -166,9 +172,10 @@ const productos = {
   ]
 };
 
-/* ---------------------------
-   Contador global en navbar
-   --------------------------- */
+/* =====================================================
+  Contador global en navbar
+  - Actualiza el número visible en la barra superior
+  ===================================================== */
 function actualizarContadorCarrito() {
   const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   const totalItems = carrito.reduce((sum, p) => sum + (p.cantidad || 0), 0);
@@ -176,9 +183,10 @@ function actualizarContadorCarrito() {
   if (span) span.textContent = totalItems > 0 ? `(${totalItems})` : "";
 }
 
-/* ---------------------------
-   Menú Dropdown "Más"
-   --------------------------- */
+/* =====================================================
+  Menú Dropdown "Más"
+  - Controla la apertura/cierre del menú desplegable del nav
+  ===================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const btnMas = document.getElementById('btnMas');
     const menuMas = document.getElementById('menuMas');
@@ -207,9 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/* ---------------------------
-   Generar catálogo
-   --------------------------- */
+/* =====================================================
+  Generar catálogo
+  - Renderiza productos/servicios según categoría y filtro
+  ===================================================== */
 function generarProductos(categoria, filtro = "") {
   const catalogo = document.querySelector(".catalogo");
   if (!catalogo || !productos[categoria]) return;
@@ -314,9 +323,10 @@ function generarProductos(categoria, filtro = "") {
   actualizarContadorCarrito();
 }
 
-/* ---------------------------
-   Animación añadir al carrito
-   --------------------------- */
+/* =====================================================
+  Animación: añadir al carrito
+  - Clona la imagen y la anima hacia el ícono del carrito
+  ===================================================== */
 function animateAddToCart(nombre) {
   try {
      // Respeta la preferencia de reducir movimiento
@@ -371,9 +381,10 @@ function animateAddToCart(nombre) {
   }
 }
 
-/* ---------------------------
-   Eventos favoritos
-   --------------------------- */
+/* =====================================================
+  Eventos: favoritos
+  - Toggle favoritos y almacenamiento local
+  ===================================================== */
 function asignarEventosFavoritos() {
   document.querySelectorAll(".btn-favorito").forEach(btn => {
     btn.addEventListener("click", (e) => {

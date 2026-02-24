@@ -1,3 +1,7 @@
+/* =====================================================
+   Configuración global
+   - Tipografía base, tamaño de fuente y ajustes generales
+   ===================================================== */
 html {
   box-sizing: border-box;
   width: 100%;
@@ -17,6 +21,10 @@ body {
   box-sizing: border-box;
 }
 
+/* =====================================================
+   Estructura principal
+   - Contenedores globales: header, navbar, footer, catálogo
+   ===================================================== */
 header, .navbar, footer, .catalogo {
   width: 100%;
   box-sizing: border-box;
@@ -38,7 +46,10 @@ footer {
   font-size: 0.8rem;
 }
 
-/* --- NAVBAR Y NAVEGACIÓN --- */
+/* =====================================================
+  Barra de navegación
+  - Estilos y comportamiento del menú principal
+  ===================================================== */
 .navbar {
   background: #333;
   padding: 0px 0;
@@ -72,7 +83,10 @@ footer {
   color: #25d366;
 }
 
-/* --- MENÚ DESPLEGABLE (DROPDOWN) --- */
+/* =====================================================
+   Menú desplegable (dropdown)
+   - Contenedor y estilos para menús secundarios activados por JS
+   ===================================================== */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -141,7 +155,10 @@ footer {
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-/* Título principal con fondo verde degradado */
+/* =====================================================
+  Encabezados y títulos
+  - Estilos para el título principal y subtítulos
+  ===================================================== */
 .titulo-principal {
   text-align: center;
   font-size: clamp(1.4rem, 4vw, 2.4rem);
@@ -164,6 +181,10 @@ footer {
   width: fit-content;
 }
 
+/* =====================================================
+  Catálogo de productos
+  - Grid responsivo para la lista de productos/servicios
+  ===================================================== */
 .catalogo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -180,7 +201,10 @@ footer {
   display: inline-block;
 }
 
-/* Tarjeta de producto */
+/* =====================================================
+  Tarjeta de producto
+  - Estilos de la tarjeta individual de producto
+  ===================================================== */
 .producto {
   background: #1a1a1a;
   border: 1px solid #333;
@@ -206,7 +230,10 @@ footer {
   border-radius: 10px;
 }
 
-/* Tarjeta de servicio */
+/* =====================================================
+  Tarjeta de servicio
+  - Estilos para tarjetas que muestran servicios (CTA)
+  ===================================================== */
 .card-servicio {
   background: #1a1a1a;
   border: 1px solid #333;
@@ -315,6 +342,10 @@ footer {
   background: #128c7e;
 }
 
+/* =====================================================
+   Contenedores de medios
+   - Imágenes y videos dentro de tarjetas (aspect-ratio, overflow)
+   ===================================================== */
 .media-container {
   position: relative; /* hace de referencia para el .btn-favorito absoluto */
   display: block;
@@ -342,6 +373,10 @@ footer {
 }
 
 /* Carrusel flechas: ocultas por defecto, aparecen al pasar por encima del contenedor */
+/* =====================================================
+  Carrusel / galerías
+  - Flechas, comportamiento y visibilidad en hover/foco
+  ===================================================== */
 .carousel { position: relative; display: block; width: 100%; height: 100%; }
 .carousel .carousel-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .carousel .carousel-arrow {
