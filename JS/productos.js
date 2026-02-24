@@ -113,30 +113,56 @@ const productos = {
   ],
   servicios: [
     {
+      nombre: "Desarrollador Web",
+      descripcion: "Creación y mantenimiento de sitios web personalizados.",
+      img: "img/Servicios/Developer/Logo.jpeg",
+      esServicio: true,
+      whatsapp: "593963210127"
+    },
+    {
       nombre: "Mantenimiento Técnico",
       descripcion: "Limpieza y optimización de dispositivos electrónicos y computadoras.",
-      img: "img/Servicios/Mantenimiento_Tecnico_O1.jpeg",
+      img: "img/Servicios/Tecnico/Logo.jpeg",
         images: [
-        "img/Servicios/Mantenimiento_Tecnico_O1.jpeg",
-        "img/Servicios/Mantenimiento_Tecnico_O2.jpg"
+        "img/Servicios/Tecnico/Logo.jpeg",
+        "img/Servicios/Tecnico/Mantenimiento_Tecnico_O1.jpg"
       ],
       esServicio: true,
       whatsapp: "593992816761"
     },
     {
-      nombre: "Envío Express",
-      descripcion: "Entrega prioritaria el mismo día para zonas seleccionadas.",
-      img: "img/Servicios/Envio_Express",
+      nombre: "MorenaMia",
+      descripcion: "Postres de autor y tortas personalizadas. Diseños que roban miradas y sabores que crean momentos.",
+      img: "img/Servicios/MorenaMia/Logo.jpeg",
+        images: [
+        "img/Servicios/MorenaMia/Logo.jpeg",
+        "img/Servicios/MorenaMia/Torta_1.jpeg",
+        "img/Servicios/MorenaMia/Torta_2.jpeg",
+        "img/Servicios/MorenaMia/Torta_3.jpeg",
+        "img/Servicios/MorenaMia/Torta_4.jpeg",
+        "img/Servicios/MorenaMia/Torta_5.jpeg",
+        "img/Servicios/MorenaMia/Torta_6.jpeg",
+        "img/Servicios/MorenaMia/Torta_7.jpeg",
+        "img/Servicios/MorenaMia/Torta_8.jpeg",
+        "img/Servicios/MorenaMia/Torta_9.jpeg",
+        "img/Servicios/MorenaMia/Torta_10.jpeg",
+        "img/Servicios/MorenaMia/Torta_11.jpeg",
+        "img/Servicios/MorenaMia/Mini_Torta_1.jpeg",
+        "img/Servicios/MorenaMia/Mini_Torta_2.jpeg",
+        "img/Servicios/MorenaMia/Mini_Torta_3.jpeg",
+        "img/Servicios/MorenaMia/Cupcakes_1.jpeg",
+        "img/Servicios/MorenaMia/Combo_1.jpeg",
+      ],
       esServicio: true,
-      whatsapp: "593963210127"
+      whatsapp: "593968432543"
     },
     {
-      nombre: "Desarrollador Web",
-      descripcion: "Creación y mantenimiento de sitios web personalizados.",
-      img: "img/Servicios/Desarrollador_Web.jpeg",
+      nombre: "Envío Express",
+      descripcion: "Entrega prioritaria el mismo día para zonas seleccionadas.",
+      img: "img/Servicios/Rider/Envio_Express",
       esServicio: true,
       whatsapp: "593963210127"
-    },
+    }
   ]
 };
 
