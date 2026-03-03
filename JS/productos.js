@@ -60,6 +60,12 @@ const productos = {
     { nombre: "Rolex de Hombre 28", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_28.jpeg" },
     { nombre: "Rolex de Hombre 29", precio: 35, img: "img/Relojes 1.1 para Hombre/Rolex_29.jpeg" }
   ],
+  Gorras: [
+    {nombre: "Gorra de Equipo 1", precio: 25, img: "img/Gorras/Gorra_de_Equipo_1.jpeg" },
+    {nombre: "Gorra de Equipo 2", precio: 25, img: "img/Gorras/Gorra_de_Equipo_2.jpeg" },
+    {nombre: "Gorra de Equipo 3", precio: 25, img: "img/Gorras/Gorra_de_Equipo_3.jpeg" },
+    {nombre: "Gorra de Equipo 4", precio: 25, img: "img/Gorras/Gorra_de_Equipo_4.jpeg" }
+  ],
   edredones: [
     { nombre: "Edredon Tropical 1 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical1.jpeg" },
     { nombre: "Edredon Tropical 2 | 2 ½", precio: 20, img: "img/Edredones/Edredon_de_2_Plazas_Tropical2.jpeg" },
@@ -91,6 +97,12 @@ const productos = {
     { nombre: "Edredon Estampado 6", precio: 39, img: "img/Edredones/Edredon_Estampado6.jpeg" },
     { nombre: "Edredon Estampado 7", precio: 39, img: "img/Edredones/Edredon_Estampado7.jpeg" }
   ],
+  sabanas: [
+    { nombre: "Sabana con Estampado 1 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado1.jpeg" },
+    { nombre: "Sabana con Estampado 2 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado2.jpeg" },
+    { nombre: "Sabana con Estampado 3 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado3.jpeg" },
+    { nombre: "Sabana con Estampado 4 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado4.jpeg" }
+  ],
   carteras: [
     { nombre: "Coach Blanco", precio: 35, img: "img/Carteras 1.1/Coach_Blanco.jpeg" },
     { nombre: "Coach Negro", precio: 35, img: "img/Carteras 1.1/Coach_Negro.jpeg" },
@@ -106,12 +118,6 @@ const productos = {
     { nombre: "The Tote Bag Snoopy 3", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Negro1.jpeg" },
     { nombre: "The Tote Bag Snoopy 4", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Negro2.jpeg" },
     { nombre: "The Tote Bag Snoopy 5", precio: 35, img: "img/Carteras 1.1/The_Tote_Bag_Snoopy_Verde.jpeg" }
-  ],
-  sabanas: [
-    { nombre: "Sabana con Estampado 1 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado1.jpeg" },
-    { nombre: "Sabana con Estampado 2 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado2.jpeg" },
-    { nombre: "Sabana con Estampado 3 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado3.jpeg" },
-    { nombre: "Sabana con Estampado 4 | 2 ½", precio: 35, img: "img/Sabanas/Sabana_Estampado4.jpeg" }
   ],
   rifas: [
     { nombre: "Rifa 2 - Rolex para Hombre", precio: 2, img: "img/Relojes 1.1 para Hombre/Rolex_1.jpeg" },
@@ -161,6 +167,13 @@ const productos = {
       ],
       esServicio: true,
       whatsapp: "593968432543"
+    },
+    {
+      nombre: "Dj Cris",
+      descripcion: "Animación musical para eventos sociales y corporativos. Ritmos que encienden la fiesta y crean momentos inolvidables.",
+      img: "img/Servicios/Dj/Dj_Cris_Amateur.jpeg",
+      esServicio: true,
+      whatsapp: "593963210127"
     },
     {
       nombre: "Envío Express",
@@ -528,6 +541,7 @@ function obtenerCategoriaActual() {
   if (pagina.includes("perfumes")) return "perfumes";
   if (pagina.includes("tecnologia")) return "tecnologia";
   if (pagina.includes("relojes")) return "relojes";
+  if (pagina.includes("gorras")) return "Gorras";
   if (pagina.includes("edredones")) return "edredones";
   if (pagina.includes("sabanas")) return "sabanas";
   if (pagina.includes("carteras")) return "carteras";
